@@ -9,14 +9,16 @@ WORK_ROOT="$HOME/.vlc-advanced-ab-looper"
 REPO_DIR="$WORK_ROOT/repo"
 LOG_DIR="$WORK_ROOT/runtime-logs"
 VLC_APP="/Applications/VLC.app"
-EXT_DIR="$HOME/Library/Application Support/org.videolan.vlc/lua/extensions"
-INTF_DIR="$HOME/Library/Application Support/org.videolan.vlc/lua/intf"
+VLC_BIN="$VLC_APP/Contents/MacOS/VLC"
+VLC_DATA="$HOME/Library/Application Support/org.videolan.vlc"
+EXT_DIR="$VLC_DATA/lua/extensions"
+INTF_DIR="$VLC_DATA/lua/intf"
+STATE_FILE="$VLC_DATA/advanced_ab_looper.state"
 STAMP="$(date '+%Y%m%d_%H%M%S')"
 HOST="$(scutil --get ComputerName 2>/dev/null | tr ' /:' '___' || hostname | tr ' /:' '___')"
 LOG_FILE="$LOG_DIR/${STAMP}_${HOST}.log"
 
 mkdir -p "$WORK_ROOT" "$LOG_DIR"
-
 sayline(){ printf '%s\n' "$*"; }
 
 clone_or_update() {
@@ -32,10 +34,62 @@ clone_or_update() {
 }
 
 install_assets() {
-  [ -d "$VLC_APP" ] || { echo "ERROR: /Applications/VLC.app not found"; exit 10; }
-  mkdir -p "$EXT_DIR" "$INTF_DIR"
+  [ -x "$VLC_BIN" ] || { echo "ERROR: /Applications/VLC.app not found"; exit 10; }
+  mkdir -p "$EXT_DIR" "$INTF_DIR" "$VLC_DATA"
   install -m 0644 "$REPO_DIR/src/extensions/advanced_ab_looper.lua" "$EXT_DIR/advanced_ab_looper.lua"
   install -m 0644 "$REPO_DIR/src/intf/advanced_ab_looper_intf.lua" "$INTF_DIR/advanced_ab_looper_intf.lua"
+}
+
+initialize_or_enable_loops() {
+  mkdir -p "$VLC_DATA"
+  if [ ! -f "$STATE_FILE" ]; then
+    cat > "$STATE_FILE" <<'EOF'
+version=2
+enabled=1
+active_id=1
+loop_count=2
+loop_1_id=1
+loop_1_start_us=671000000
+loop_1_end_us=674000000
+loop_2_id=2
+loop_2_start_us=611000000
+loop_2_end_us=759000000
+EOF
+    return
+  fi
+
+  # Preserve all saved loop ranges. Re-enable the last active loop when possible.
+  if grep -q '^active_id=[1-9][0-9]*$' "$STATE_FILE"; then
+    /usr/bin/sed -i '' 's/^enabled=.*/enabled=1/' "$STATE_FILE"
+  fi
+}
+
+open_looper_ui() {
+  /usr/bin/osascript <<'APPLESCRIPT' >/dev/null 2>&1 || true
+on tryOpen(menuName)
+  tell application "System Events"
+    tell process "VLC"
+      if exists menu bar item menuName of menu bar 1 then
+        tell menu bar item menuName of menu bar 1
+          click
+          delay 0.3
+          if exists menu item "Advanced A-B Looper" of menu 1 then
+            click menu item "Advanced A-B Looper" of menu 1
+            return true
+          end if
+        end tell
+      end if
+    end tell
+  end tell
+  return false
+end tryOpen
+
+tell application "VLC" to activate
+delay 2
+if not tryOpen("View") then
+  tryOpen("表示")
+end if
+APPLESCRIPT
 }
 
 push_log() {
@@ -49,7 +103,7 @@ push_log() {
       echo "===== environment ====="
       date
       sw_vers 2>/dev/null || true
-      "$VLC_APP/Contents/MacOS/VLC" --version 2>&1 | head -n 4 || true
+      "$VLC_BIN" --version 2>&1 | head -n 4 || true
       echo "exit_status=$status"
     } >> "$REPO_DIR/logs/$HOST/${STAMP}.log"
     git -C "$REPO_DIR" add "logs/$HOST/${STAMP}.log"
@@ -65,15 +119,22 @@ push_log() {
 }
 trap push_log EXIT INT TERM
 
-sayline "[1/4] Updating from GitHub..."
+sayline "[1/6] Downloading/updating all assets from GitHub..."
 clone_or_update
-sayline "[2/4] Installing VLC Lua extension/interface..."
+sayline "[2/6] Installing the VLC extension and loop engine..."
 install_assets
-sayline "[3/4] Running local smoke checks..."
+sayline "[3/6] Initializing saved loop points and LOOP ON..."
+initialize_or_enable_loops
+sayline "[4/6] Running smoke tests..."
 bash "$REPO_DIR/tests/smoke_test.sh"
-sayline "[4/4] Starting VLC; diagnostics will be pushed automatically on exit."
+sayline "[5/6] Starting VLC with the loop engine..."
 
-"$VLC_APP/Contents/MacOS/VLC" \
-  --extraintf=luaintf \
-  --lua-intf=advanced_ab_looper_intf \
-  --verbose=2 2>&1 | tee "$LOG_FILE"
+# Any files dropped onto RUN.command or supplied as arguments are opened by VLC.
+("$VLC_BIN" --extraintf=luaintf --lua-intf=advanced_ab_looper_intf --verbose=2 "$@" 2>&1 | tee "$LOG_FILE") &
+VLC_PIPE_PID=$!
+
+sayline "[6/6] Opening Advanced A-B Looper automatically..."
+open_looper_ui
+sayline "READY: loop #1 is ON by default on first run. Existing saved loops are preserved."
+
+wait "$VLC_PIPE_PID"
