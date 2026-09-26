@@ -1,45 +1,37 @@
-# VLC Advanced A-B Looper (VLC 3.0.24)
+# VLC Advanced A-B Looper (VLC 3.0.24 / macOS)
 
-Time-specified multi A-B loop extension for VLC 3.x on macOS.
+Time-specified A-B looping with multiple saved presets per media file.
 
-## Runtime rule
-The A/B values currently shown in the UI are the source of truth.
+## Runtime contract
+- The visible A/B fields are the runtime source of truth.
+- `LOOP ON` always uses the A/B values currently visible on screen.
+- Saved presets are only shortcuts that populate A/B.
+- Saved presets are isolated by the current media file's absolute path.
+- The helper also binds the active loop to the exact current media URI, so changing tracks immediately prevents the old loop from firing.
 
-- `LOOP ON` validates the visible A/B fields and immediately applies those values.
-- Saving is never required before looping.
-- Saved ranges are presets only.
-- `Load` copies a saved preset into the A/B fields; it does not activate it.
-- `Save New` stores the current A/B fields as a new preset.
-- `Update` overwrites the selected preset from the current A/B fields.
-- `Delete` removes only the selected preset and never changes the running loop.
-- Editing A/B while a loop is already ON takes effect when `LOOP ON` is pressed again.
+## Persistent storage
+All saved presets live in one JSON file:
 
-## Loop engine
-- LOOP ON/OFF is explicit in the UI.
-- Helper polls playback every 5 ms.
-- It seeks at B - 20 ms to avoid intentionally crossing B before returning to A.
-- The engine consumes `active_start_us` / `active_end_us`; it does not execute a preset ID.
-- Runtime diagnostics are captured automatically by RUN.command and pushed to `logs/<Mac>/<timestamp>.log` when VLC exits.
+`~/Library/Application Support/org.videolan.vlc/advanced_ab_looper_library.json`
 
-## One-file operation
-Keep `RUN.command` anywhere convenient. Each run:
-1. downloads/resets to latest `main` from GitHub,
-2. installs Lua files into VLC's user directories,
-3. runs smoke checks,
-4. starts VLC with the helper interface,
-5. opens Advanced A-B Looper automatically,
-6. captures verbose VLC logs and commits/pushes that log automatically on VLC exit.
+Shape:
 
-No manual log upload is required.
+`tracks[] -> absolute path -> loops[]`
 
-## First-run defaults
-Only when no state file exists:
-- preset #1: 11:11 -> 11:14
-- preset #2: 10:11 -> 12:39
-- active runtime A/B: 11:11 -> 11:14
-- LOOP ON
+The runtime state file is transient control-plane data and is not the preset database.
 
-After the first run, existing runtime state and presets are preserved.
+## Preset selection
+VLC 3's Lua `add_dropdown()` exposes the selected value but no selection-change callback.
+On macOS, `RUN.command` therefore launches a small Accessibility watcher. Selecting a saved preset in the dropdown immediately copies that preset's A/B values into the visible fields. There is no Load button.
 
-## Requirement
-Git must already be able to authenticate to this GitHub repository (SSH key or existing HTTPS credential). No token is embedded in this repository or script.
+## RUN.command
+Each run:
+1. updates the repository from GitHub,
+2. installs the extension/interface,
+3. runs contract checks,
+4. starts VLC with the loop helper,
+5. opens Advanced A-B Looper,
+6. starts the dropdown auto-load watcher,
+7. captures diagnostics and pushes the log to GitHub when VLC exits.
+
+macOS may request Accessibility permission for Terminal/osascript so the dropdown auto-load bridge can update the A/B fields.
