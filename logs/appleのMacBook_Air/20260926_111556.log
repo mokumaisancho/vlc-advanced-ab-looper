@@ -1,0 +1,1470 @@
+[00007fc21c9055f0] main libvlc debug: VLC media player - 3.0.20 Vetinari
+[00007fc21c9055f0] main libvlc debug: Copyright © 1996-2023 the VideoLAN team
+[00007fc21c9055f0] main libvlc debug: revision 3.0.20-0-g6f0d0ab126
+[00007fc21c9055f0] main libvlc debug: configured with /Users/d-fu/vlc-3.0/extras/package/macosx/../../../configure  '--prefix=/Users/d-fu/vlc-3.0/build-intel64/vlc_install_dir' '--enable-macosx' '--enable-merge-ffmpeg' '--enable-osx-notifications' '--enable-faad' '--enable-flac' '--enable-theora' '--enable-shout' '--enable-ncurses' '--enable-twolame' '--enable-realrtsp' '--enable-libass' '--enable-macosx-avfoundation' '--disable-skins2' '--disable-xcb' '--disable-caca' '--disable-pulse' '--disable-sdl-image' '--disable-vnc' '--build=x86_64-apple-darwin19' '--host=x86_64-apple-darwin19' '--with-macosx-version-min=10.7' '--with-macosx-sdk=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk' '--with-breakpad=https://mac.crashes.videolan.org' 'build_alias=x86_64-apple-darwin19' 'host_alias=x86_64-apple-darwin19' 'CC=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang' 'CFLAGS=-g -arch x86_64' 'LDFLAGS=-arch x86_64' 'CXX=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++' 'CXXFLAGS=-g -arch x86_64' 'OBJC=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang' 'OBJCFLAGS=-g -arch x86_64'
+[00007fc21c9055f0] main libvlc debug: searching plug-in modules
+[00007fc21c9055f0] main libvlc debug: loading plugins cache file /Applications/VLC.app/Contents/MacOS/plugins/plugins.dat
+[00007fc21c9055f0] main libvlc debug: recursively browsing `/Applications/VLC.app/Contents/MacOS/plugins'
+[00007fc21c9055f0] main libvlc debug: plug-ins loaded: 472 modules
+[00007fc21c9055f0] main libvlc debug: opening config file (/Users/apple/Library/Preferences/org.videolan.vlc/vlcrc)
+[00007fc21b704e90] main logger debug: looking for logger module matching "any": 3 candidates
+[00007fc21b704e90] main logger debug: using logger module "console"
+[00007fc21c9055f0] main libvlc debug: translation test: code is "C"
+[00007fc21b70fe70] main keystore debug: looking for keystore module matching "memory": 3 candidates
+[00007fc21b70fe70] main keystore debug: using keystore module "memory"
+[00007fc21c9055f0] main libvlc debug: CPU has capabilities MMX MMXEXT SSE SSE2 SSE3 SSSE3 SSE4.1 SSE4.2 FPU 
+[00007fc21c9055f0] main libvlc warning: Key "Command+0" bound to multiple actions
+[00007fc21c00e0f0] main input debug: Creating an input for 'メディアライブラリ'
+[00007fc21c00e0f0] main input debug: Input is a meta file: disabling unneeded options
+[00007fc21c00e0f0] main input debug: using timeshift granularity of 50 MiB
+[00007fc21c00e0f0] main input debug: using default timeshift path
+[00007fc21c00e0f0] main input debug: `file/directory:///Users/apple/Library/Application%20Support/org.videolan.vlc/ml.xspf' gives access `file' demux `directory' path `/Users/apple/Library/Application%20Support/org.videolan.vlc/ml.xspf'
+[00007fc21ca0a450] main input source debug: creating demux: access='file' demux='directory' location='/Users/apple/Library/Application%20Support/org.videolan.vlc/ml.xspf' file='/Users/apple/Library/Application Support/org.videolan.vlc/ml.xspf'
+[00007fc21ca0a5c0] main demux debug: looking for access_demux module matching "file": 14 candidates
+[00007fc21ca0a5c0] main demux debug: no access_demux modules matched
+[00007fc21c80ac10] main stream debug: creating access: file:///Users/apple/Library/Application%20Support/org.videolan.vlc/ml.xspf
+[00007fc21c80ac10] main stream debug:  (path: /Users/apple/Library/Application Support/org.videolan.vlc/ml.xspf)
+[00007fc21c80ac10] main stream debug: looking for access module matching "file": 24 candidates
+[00007fc21c80ac10] main stream debug: using access module "filesystem"
+[00007fc21b7104d0] main stream debug: looking for stream_filter module matching "prefetch,cache_read": 26 candidates
+[00007fc21b7104d0] cache_read stream debug: Using stream method for AStream*
+[00007fc21b7104d0] cache_read stream debug: starting pre-buffering
+[00007fc21b7104d0] cache_read stream debug: received first data after 0 ms
+[00007fc21b7104d0] cache_read stream debug: pre-buffering done 1024 bytes in 0s - 32258 KiB/s
+[00007fc21b7104d0] main stream debug: using stream_filter module "cache_read"
+[00007fc21b710690] main stream debug: looking for stream_filter module matching "any": 26 candidates
+[00007fc21b710690] playlist stream debug: using XSPF playlist reader
+[00007fc21b710690] main stream debug: using stream_filter module "playlist"
+[00007fc21b710690] main stream debug: stream filter added to 0x7fc21b7104d0
+[00007fc21c80add0] main stream debug: looking for stream_filter module matching "any": 26 candidates
+[00007fc21c80add0] main stream debug: no stream_filter modules matched
+[00007fc21b710850] main stream_directory debug: looking for stream_directory module matching "any": 1 candidates
+[00007fc21b710850] main stream_directory debug: no stream_directory modules matched
+[00007fc21ca0a450] main input source debug: attachment of directory-extractor failed for file:///Users/apple/Library/Application%20Support/org.videolan.vlc/ml.xspf
+[00007fc21c907db0] main stream debug: looking for stream_filter module matching "record": 26 candidates
+[00007fc21c907db0] main stream debug: using stream_filter module "record"
+[00007fc21ca0a450] main input source debug: creating demux: access='file' demux='directory' location='/Users/apple/Library/Application%20Support/org.videolan.vlc/ml.xspf' file='/Users/apple/Library/Application Support/org.videolan.vlc/ml.xspf'
+[00007fc21b7109d0] main demux debug: looking for demux module matching "directory": 55 candidates
+[00007fc21b7109d0] main demux debug: using demux module "directory"
+[00007fc21b710850] main demux meta debug: looking for meta reader module matching "any": 2 candidates
+[00007fc21b710850] lua demux meta debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/reader
+[00007fc21b710850] lua demux meta debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/reader
+[00007fc21b710850] lua demux meta debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/reader
+[00007fc21b710850] lua demux meta debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/reader/filename.luac
+[00007fc21b710850] main demux meta debug: no meta reader modules matched
+[00007fc21c00e0f0] main input debug: `file/directory:///Users/apple/Library/Application%20Support/org.videolan.vlc/ml.xspf' successfully opened
+[00007fc21b710850] main xml reader debug: looking for xml reader module matching "any": 1 candidates
+[00007fc21b710850] main xml reader debug: using xml reader module "xml"
+[00007fc21b710690] playlist stream warning: skipping unexpected element <vlc:item>
+[00007fc21b710690] playlist stream warning: skipping unexpected element <vlc:item>
+[00007fc21b710690] playlist stream warning: skipping unexpected element <vlc:item>
+[00007fc21b710690] playlist stream warning: skipping unexpected element <vlc:item>
+[00007fc21b710690] playlist stream warning: skipping unexpected element <vlc:item>
+[00007fc21b710690] playlist stream warning: skipping unexpected element <vlc:item>
+[00007fc21b710690] playlist stream warning: skipping unexpected element <vlc:item>
+[00007fc21b710690] playlist stream warning: skipping unexpected element <vlc:item>
+[00007fc21b710690] playlist stream warning: skipping unexpected element <vlc:item>
+[00007fc21c00e0f0] main input debug: EOF reached
+[00007fc21b8082f0] main input debug: Creating an input for preparsing 'input.mp3'
+[00007fc21b7109d0] main demux debug: removing module "directory"
+[00007fc21c907db0] main stream debug: removing module "record"
+[00007fc21b710690] main stream debug: removing module "playlist"
+[00007fc21b7104d0] main stream debug: removing module "cache_read"
+[00007fc21c80ac10] main stream debug: removing module "filesystem"
+[00007fc21c907470] main playlist debug: creating audio output
+[00007fc21ca0a450] main audio output debug: looking for audio output module matching "any": 4 candidates
+[00007fc21b8082f0] main input debug: Creating an input for preparsing '【幽☆遊☆白書】 もしも「さよならbyebye」がAcid Jazzだったら？ [xc7yzjCwH5g].webm'
+[00007fc21c9061b0] main meta fetcher debug: looking for meta fetcher module matching "any": 1 candidates
+[00007fc21c9061b0] lua meta fetcher debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/fetcher
+[00007fc21c9061b0] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/fetcher
+[00007fc21c9061b0] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/fetcher
+[00007fc21c9061b0] main meta fetcher debug: no meta fetcher modules matched
+[00007fc21c9061b0] main art finder debug: looking for art finder module matching "any": 2 candidates
+[00007fc21c9061b0] lua art finder debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/art
+[00007fc21c9061b0] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/art
+[00007fc21c9061b0] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/art
+[00007fc21c9061b0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/00_musicbrainz.luac
+[00007fc21c9061b0] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/00_musicbrainz.luac
+[00007fc21c9061b0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/01_googleimage.luac
+[00007fc21c9061b0] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/01_googleimage.luac
+[00007fc21c9061b0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/02_frenchtv.luac
+[00007fc21c9061b0] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/02_frenchtv.luac
+[00007fc21c9061b0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/03_lastfm.luac
+[00007fc21c9061b0] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/03_lastfm.luac
+[00007fc21c9061b0] main art finder debug: no art finder modules matched
+[00007fc21c80d4b0] main meta fetcher debug: looking for meta fetcher module matching "any": 1 candidates
+[00007fc21c80d4b0] lua meta fetcher debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/fetcher
+[00007fc21c80d4b0] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/fetcher
+[00007fc21c80d4b0] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/fetcher
+[00007fc21c80d4b0] main meta fetcher debug: no meta fetcher modules matched
+[00007fc21c9061b0] main art finder debug: looking for art finder module matching "any": 2 candidates
+[00007fc21c9061b0] lua art finder debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/art
+[00007fc21c9061b0] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/art
+[00007fc21c9061b0] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/art
+[00007fc21c9061b0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/00_musicbrainz.luac
+[00007fc21c9061b0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/01_googleimage.luac
+[00007fc21c9061b0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/02_frenchtv.luac
+[00007fc21c9061b0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/03_lastfm.luac
+[00007fc21c9061b0] main art finder debug: no art finder modules matched
+[00007fc21b8082f0] main input debug: Creating an input for preparsing '【幽☆遊☆白書】もしも「さよならbye bye」がドラムンベースだったら？疾走感と切なさが溶け合うLiquid Funk💫 [pMcO0IWMfk4].webm'
+[00007fc21b714850] main meta fetcher debug: looking for meta fetcher module matching "any": 1 candidates
+[00007fc21b714850] lua meta fetcher debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/fetcher
+[00007fc21b714850] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/fetcher
+[00007fc21b714850] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/fetcher
+[00007fc21b714850] main meta fetcher debug: no meta fetcher modules matched
+[00007fc21b714850] main art finder debug: looking for art finder module matching "any": 2 candidates
+[00007fc21b714850] lua art finder debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/art
+[00007fc21b714850] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/art
+[00007fc21b714850] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/art
+[00007fc21b714850] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/00_musicbrainz.luac
+[00007fc21b714850] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/00_musicbrainz.luac
+[00007fc21b714850] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/01_googleimage.luac
+[00007fc21b714850] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/01_googleimage.luac
+[00007fc21b714850] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/02_frenchtv.luac
+[00007fc21b714850] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/02_frenchtv.luac
+[00007fc21b714850] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/03_lastfm.luac
+[00007fc21b714850] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/03_lastfm.luac
+[00007fc21b714850] main art finder debug: no art finder modules matched
+[00007fc21cb04170] main meta fetcher debug: looking for meta fetcher module matching "any": 1 candidates
+[00007fc21cb04170] lua meta fetcher debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/fetcher
+[00007fc21cb04170] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/fetcher
+[00007fc21cb04170] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/fetcher
+[00007fc21cb04170] main meta fetcher debug: no meta fetcher modules matched
+[00007fc21c9061b0] main art finder debug: looking for art finder module matching "any": 2 candidates
+[00007fc21c9061b0] lua art finder debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/art
+[00007fc21c9061b0] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/art
+[00007fc21c9061b0] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/art
+[00007fc21c9061b0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/00_musicbrainz.luac
+[00007fc21c9061b0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/01_googleimage.luac
+[00007fc21c9061b0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/02_frenchtv.luac
+[00007fc21c9061b0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/03_lastfm.luac
+[00007fc21c9061b0] main art finder debug: no art finder modules matched
+[00007fc21c01b2f0] main input debug: Creating an input for preparsing '【東京事変】もしも「群青日和」がドラムンベースだったら？ [tog8kYHMh-8].webm'
+[00007fc21c80c0b0] main meta fetcher debug: looking for meta fetcher module matching "any": 1 candidates
+[00007fc21c80c0b0] lua meta fetcher debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/fetcher
+[00007fc21c80c0b0] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/fetcher
+[00007fc21c80c0b0] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/fetcher
+[00007fc21c80c0b0] main meta fetcher debug: no meta fetcher modules matched
+[00007fc21c80c0b0] main art finder debug: looking for art finder module matching "any": 2 candidates
+[00007fc21c80c0b0] lua art finder debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/art
+[00007fc21c80c0b0] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/art
+[00007fc21c80c0b0] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/art
+[00007fc21c80c0b0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/00_musicbrainz.luac
+[00007fc21c80c0b0] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/00_musicbrainz.luac
+[00007fc21c80c0b0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/01_googleimage.luac
+[00007fc21c80c0b0] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/01_googleimage.luac
+[00007fc21c80c0b0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/02_frenchtv.luac
+[00007fc21c80c0b0] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/02_frenchtv.luac
+[00007fc21c80c0b0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/03_lastfm.luac
+[00007fc21c80c0b0] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/03_lastfm.luac
+[00007fc21c80c0b0] main art finder debug: no art finder modules matched
+[00007fc21c816510] main meta fetcher debug: looking for meta fetcher module matching "any": 1 candidates
+[00007fc21c816510] lua meta fetcher debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/fetcher
+[00007fc21c816510] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/fetcher
+[00007fc21c816510] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/fetcher
+[00007fc21c816510] main meta fetcher debug: no meta fetcher modules matched
+[00007fc21ce04170] main art finder debug: looking for art finder module matching "any": 2 candidates
+[00007fc21ce04170] lua art finder debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/art
+[00007fc21ce04170] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/art
+[00007fc21ce04170] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/art
+[00007fc21ce04170] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/00_musicbrainz.luac
+[00007fc21ce04170] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/01_googleimage.luac
+[00007fc21ce04170] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/02_frenchtv.luac
+[00007fc21ce04170] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/03_lastfm.luac
+[00007fc21ce04170] main art finder debug: no art finder modules matched
+[00007fc21c01b2f0] main input debug: Creating an input for preparsing 'ハナミズキ - 一青窈【ノリノリREMIX】 [_NHK4_86xj0].webm'
+[00007fc21cb04170] main meta fetcher debug: looking for meta fetcher module matching "any": 1 candidates
+[00007fc21cb04170] lua meta fetcher debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/fetcher
+[00007fc21cb04170] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/fetcher
+[00007fc21cb04170] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/fetcher
+[00007fc21cb04170] main meta fetcher debug: no meta fetcher modules matched
+[00007fc21c80fdf0] main art finder debug: looking for art finder module matching "any": 2 candidates
+[00007fc21c80fdf0] lua art finder debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/art
+[00007fc21c80fdf0] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/art
+[00007fc21c80fdf0] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/art
+[00007fc21c80fdf0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/00_musicbrainz.luac
+[00007fc21c80fdf0] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/00_musicbrainz.luac
+[00007fc21c80fdf0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/01_googleimage.luac
+[00007fc21c80fdf0] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/01_googleimage.luac
+[00007fc21c80fdf0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/02_frenchtv.luac
+[00007fc21c80fdf0] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/02_frenchtv.luac
+[00007fc21c80fdf0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/03_lastfm.luac
+[00007fc21c80fdf0] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/03_lastfm.luac
+[00007fc21c80fdf0] main art finder debug: no art finder modules matched
+[00007fc21b71be10] main meta fetcher debug: looking for meta fetcher module matching "any": 1 candidates
+[00007fc21b71be10] lua meta fetcher debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/fetcher
+[00007fc21b71be10] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/fetcher
+[00007fc21b71be10] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/fetcher
+[00007fc21b71be10] main meta fetcher debug: no meta fetcher modules matched
+[00007fc21b71b290] main art finder debug: looking for art finder module matching "any": 2 candidates
+[00007fc21b71b290] lua art finder debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/art
+[00007fc21b71b290] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/art
+[00007fc21b71b290] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/art
+[00007fc21b71b290] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/00_musicbrainz.luac
+[00007fc21b71b290] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/01_googleimage.luac
+[00007fc21b71b290] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/02_frenchtv.luac
+[00007fc21b71b290] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/03_lastfm.luac
+[00007fc21b71b290] main art finder debug: no art finder modules matched
+[00007fc21c01b2f0] main input debug: Creating an input for preparsing '粉雪 - レミオロメン【ノリノリREMIX ⧸ ドパガキREMIX】 [jgt9BGvZ8Vg].webm'
+[00007fc21cc04a10] main meta fetcher debug: looking for meta fetcher module matching "any": 1 candidates
+[00007fc21cc04a10] lua meta fetcher debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/fetcher
+[00007fc21cc04a10] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/fetcher
+[00007fc21cc04a10] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/fetcher
+[00007fc21cc04a10] main meta fetcher debug: no meta fetcher modules matched
+[00007fc21c908240] main art finder debug: looking for art finder module matching "any": 2 candidates
+[00007fc21c908240] lua art finder debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/art
+[00007fc21c908240] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/art
+[00007fc21c908240] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/art
+[00007fc21c908240] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/00_musicbrainz.luac
+[00007fc21c908240] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/00_musicbrainz.luac
+[00007fc21c908240] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/01_googleimage.luac
+[00007fc21c908240] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/01_googleimage.luac
+[00007fc21c908240] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/02_frenchtv.luac
+[00007fc21c908240] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/02_frenchtv.luac
+[00007fc21c908240] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/03_lastfm.luac
+[00007fc21c908240] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/03_lastfm.luac
+[00007fc21c908240] main art finder debug: no art finder modules matched
+[00007fc21cc04a10] main meta fetcher debug: looking for meta fetcher module matching "any": 1 candidates
+[00007fc21cc04a10] lua meta fetcher debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/fetcher
+[00007fc21cc04a10] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/fetcher
+[00007fc21cc04a10] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/fetcher
+[00007fc21cc04a10] main meta fetcher debug: no meta fetcher modules matched
+[00007fc21c80fdd0] main art finder debug: looking for art finder module matching "any": 2 candidates
+[00007fc21c80fdd0] lua art finder debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/art
+[00007fc21c80fdd0] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/art
+[00007fc21c80fdd0] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/art
+[00007fc21c80fdd0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/00_musicbrainz.luac
+[00007fc21c80fdd0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/01_googleimage.luac
+[00007fc21c80fdd0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/02_frenchtv.luac
+[00007fc21c80fdd0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/03_lastfm.luac
+[00007fc21c80fdd0] main art finder debug: no art finder modules matched
+[00007fc21ca0a450] auhal audio output debug: Trying to use stored audio device 0 (analog)
+[00007fc21ca0a450] auhal audio output debug: Rebuild device list
+[00007fc21ca0a450] auhal audio output debug: found 10 audio device(s)
+[00007fc21ca0a450] auhal audio output debug: DevID: 137 DevName: DELL S2721D
+[00007fc21c01b2f0] main input debug: Creating an input for preparsing '粉雪 - レミオロメン【ノリノリREMIX】 [sjRYYBZHGWA].webm'
+[00007fc21ca0b060] main meta fetcher debug: looking for meta fetcher module matching "any": 1 candidates
+[00007fc21ca0b060] lua meta fetcher debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/fetcher
+[00007fc21ca0b060] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/fetcher
+[00007fc21ca0b060] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/fetcher
+[00007fc21ca0b060] main meta fetcher debug: no meta fetcher modules matched
+[00007fc21cc04a10] main art finder debug: looking for art finder module matching "any": 2 candidates
+[00007fc21cc04a10] lua art finder debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/art
+[00007fc21cc04a10] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/art
+[00007fc21cc04a10] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/art
+[00007fc21cc04a10] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/00_musicbrainz.luac
+[00007fc21cc04a10] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/00_musicbrainz.luac
+[00007fc21cc04a10] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/01_googleimage.luac
+[00007fc21cc04a10] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/01_googleimage.luac
+[00007fc21cc04a10] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/02_frenchtv.luac
+[00007fc21cc04a10] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/02_frenchtv.luac
+[00007fc21cc04a10] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/03_lastfm.luac
+[00007fc21cc04a10] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/03_lastfm.luac
+[00007fc21cc04a10] main art finder debug: no art finder modules matched
+[00007fc21c80c0b0] main meta fetcher debug: looking for meta fetcher module matching "any": 1 candidates
+[00007fc21c80c0b0] lua meta fetcher debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/fetcher
+[00007fc21c80c0b0] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/fetcher
+[00007fc21c80c0b0] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/fetcher
+[00007fc21c80c0b0] main meta fetcher debug: no meta fetcher modules matched
+[00007fc21ce04170] main art finder debug: looking for art finder module matching "any": 2 candidates
+[00007fc21ce04170] lua art finder debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/art
+[00007fc21ce04170] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/art
+[00007fc21ce04170] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/art
+[00007fc21ce04170] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/00_musicbrainz.luac
+[00007fc21ce04170] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/01_googleimage.luac
+[00007fc21ce04170] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/02_frenchtv.luac
+[00007fc21ca0a450] auhal audio output debug: DevID: 161 DevName: Plantronics Blackwire 5220 Series
+[00007fc21ca0a450] auhal audio output debug: this 'Plantronics Blackwire 5220 Series' is INPUT only. skipping...
+[00007fc21ca0a450] auhal audio output debug: DevID: 165 DevName: Plantronics Blackwire 5220 Series
+[00007fc21ce04170] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/03_lastfm.luac
+[00007fc21ce04170] main art finder debug: no art finder modules matched
+[00007fc21ca0a450] auhal audio output debug: DevID: 110 DevName: BlackHole 2ch
+[00007fc21ca0a450] auhal audio output debug: DevID: 103 DevName: 外部ヘッドフォン
+[00007fc21ca0a450] auhal audio output debug: DevID: 98 DevName: MacBook Airのマイク
+[00007fc21ca0a450] auhal audio output debug: this 'MacBook Airのマイク' is INPUT only. skipping...
+[00007fc21ca0a450] auhal audio output debug: DevID: 91 DevName: MacBook Airのスピーカー
+[00007fc21ca0a450] auhal audio output debug: DevID: 127 DevName: Microsoft Teams Audio
+[00007fc21d0210f0] main input debug: Creating an input for preparsing 'GMT20260914-010058_Recording_1724x812.mp4'
+[00007fc21ca0a450] auhal audio output debug: DevID: 53 DevName: 複数入力装置
+[00007fc21b71b290] main meta fetcher debug: looking for meta fetcher module matching "any": 1 candidates
+[00007fc21b71b290] lua meta fetcher debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/fetcher
+[00007fc21b71b290] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/fetcher
+[00007fc21b71b290] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/fetcher
+[00007fc21b71b290] main meta fetcher debug: no meta fetcher modules matched
+[00007fc21b71b290] main art finder debug: looking for art finder module matching "any": 2 candidates
+[00007fc21b71b290] lua art finder debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/art
+[00007fc21b71b290] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/art
+[00007fc21b71b290] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/art
+[00007fc21b71b290] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/00_musicbrainz.luac
+[00007fc21b71b290] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/00_musicbrainz.luac
+[00007fc21b71b290] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/01_googleimage.luac
+[00007fc21b71b290] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/01_googleimage.luac
+[00007fc21b71b290] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/02_frenchtv.luac
+[00007fc21b71b290] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/02_frenchtv.luac
+[00007fc21b71b290] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/03_lastfm.luac
+[00007fc21ca0a450] auhal audio output debug: DevID: 64 DevName: 複数出力装置
+[00007fc21b71b290] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/03_lastfm.luac
+[00007fc21b71b290] main art finder debug: no art finder modules matched
+[00007fc21c80fdd0] main meta fetcher debug: looking for meta fetcher module matching "any": 1 candidates
+[00007fc21c80fdd0] lua meta fetcher debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/fetcher
+[00007fc21c80fdd0] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/fetcher
+[00007fc21c80fdd0] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/fetcher
+[00007fc21c80fdd0] main meta fetcher debug: no meta fetcher modules matched
+[00007fc21c80fdd0] main art finder debug: looking for art finder module matching "any": 2 candidates
+[00007fc21c80fdd0] lua art finder debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/art
+[00007fc21c80fdd0] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/art
+[00007fc21c80fdd0] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/art
+[00007fc21c80fdd0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/00_musicbrainz.luac
+[00007fc21ca0a450] main audio output debug: using audio output module "auhal"
+[00007fc21c80fdd0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/01_googleimage.luac
+[00007fc21c80fdd0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/02_frenchtv.luac
+[00007fc21c80fdd0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/03_lastfm.luac
+[00007fc21c80fdd0] main art finder debug: no art finder modules matched
+[00007fc21c907470] main playlist debug: keeping audio output
+[00007fc21b71b290] main interface debug: looking for interface module matching "luaintf,none": 15 candidates
+[00007fc21b71b290] [advanced_ab_looper_intf] lua interface debug: Found lua interface script: /Users/apple/Library/Application Support/org.videolan.vlc/lua/intf/advanced_ab_looper_intf.lua
+[00007fc21b71b290] [advanced_ab_looper_intf] main interface debug: using interface module "lua"
+[00007fc21c80fdd0] main interface debug: looking for interface module matching "hotkeys,none": 15 candidates
+[00007fc21b71b290] [advanced_ab_looper_intf] lua interface: [Advanced A-B Looper] v2.1 helper started
+[00007fc21c80fdd0] main interface debug: using interface module "hotkeys"
+[00007fc21c9055f0] main libvlc: vlcはデフォルトのインターフェースで実行しています。インターフェースのない vlc を使用するには'cvlc'を使用してください。
+[00007fc21c915080] main interface debug: looking for interface module matching "any": 15 candidates
+[00007fc21c915080] macosx interface debug: Starting macosx interface
+[00007fc21c91e150] main meta fetcher debug: looking for meta fetcher module matching "any": 1 candidates
+[00007fc21c91e150] lua meta fetcher debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/fetcher
+[00007fc21c91e150] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/fetcher
+[00007fc21c91e150] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/fetcher
+[00007fc21c91e150] main meta fetcher debug: no meta fetcher modules matched
+[00007fc21c91e150] main art finder debug: looking for art finder module matching "any": 2 candidates
+[00007fc21c91e150] lua art finder debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/art
+[00007fc21c91e150] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/art
+[00007fc21c91e150] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/art
+[00007fc21c91e150] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/00_musicbrainz.luac
+[00007fc21c91e150] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/00_musicbrainz.luac
+[00007fc21c91e150] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/01_googleimage.luac
+[00007fc21c91e150] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/01_googleimage.luac
+[00007fc21c91e150] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/02_frenchtv.luac
+[00007fc21c91e150] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/02_frenchtv.luac
+[00007fc21c91e150] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/03_lastfm.luac
+[00007fc21c91e150] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/03_lastfm.luac
+[00007fc21c91e150] main art finder debug: no art finder modules matched
+[00007fc21ca0fe40] main meta fetcher debug: looking for meta fetcher module matching "any": 1 candidates
+[00007fc21ca0fe40] lua meta fetcher debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/fetcher
+[00007fc21ca0fe40] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/fetcher
+[00007fc21ca0fe40] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/fetcher
+[00007fc21ca0fe40] main meta fetcher debug: no meta fetcher modules matched
+[00007fc21ca0fe40] main art finder debug: looking for art finder module matching "any": 2 candidates
+[00007fc21ca0fe40] lua art finder debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/art
+[00007fc21ca0fe40] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/art
+[00007fc21ca0fe40] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/art
+[00007fc21ca0fe40] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/00_musicbrainz.luac
+[00007fc21ca0fe40] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/01_googleimage.luac
+[00007fc21ca0fe40] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/02_frenchtv.luac
+[00007fc21ca0fe40] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/03_lastfm.luac
+[00007fc21ca0fe40] main art finder debug: no art finder modules matched
+[00007fc21c915080] macosx interface debug: Initializing input manager
+[00007fc21c915080] macosx interface debug: Register dialog provider
+[00007fc21c915080] macosx interface debug: Loading VLCStatusBarIcon
+[00007fc21c95c850] main probe debug: looking for renderer probe module matching "any": 1 candidates
+[00007fc21c95c850] main probe debug: no renderer probe modules matched
+[00007fc21b746030] main generic debug: looking for extension module matching "any": 1 candidates
+[00007fc21b746030] lua generic debug: Opening Lua Extension module
+[00007fc21b746030] lua generic debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/extensions
+[00007fc21b746030] lua generic debug: Trying Lua playlist script /Users/apple/Library/Application Support/org.videolan.vlc/lua/extensions/advanced_ab_looper.lua
+[00007fc21b746030] lua generic debug: Scanning Lua script /Users/apple/Library/Application Support/org.videolan.vlc/lua/extensions/advanced_ab_looper.lua
+[00007fc21b746030] lua generic debug: Script /Users/apple/Library/Application Support/org.videolan.vlc/lua/extensions/advanced_ab_looper.lua has the following capability flags: 0x0
+[00007fc21b746030] lua generic debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/extensions
+[00007fc21b746030] lua generic debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/extensions
+[00007fc21b746030] lua generic debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/extensions/VLSub.luac
+[00007fc21b746030] lua generic debug: Scanning Lua script /Applications/VLC.app/Contents/MacOS/share/lua/extensions/VLSub.luac
+[00007fc21b746030] lua generic debug: Script /Applications/VLC.app/Contents/MacOS/share/lua/extensions/VLSub.luac has the following capability flags: 0x5
+[00007fc21b746030] main generic debug: using extension module "lua"
+[00007fc21c915080] macosx interface debug: Initializing playlist model
+[00007fc21ca7e3b0] main probe debug: looking for services probe module matching "any": 6 candidates
+[00007fc21ca7e3b0] main probe debug: no services probe modules matched
+[00007fc21c915080] macosx interface debug: Finished loading macosx interface
+[00007fc21c915080] main interface debug: using interface module "macosx"
+[00007fc21c907470] main playlist debug: processing request item: null, node: プレイリスト, skip: 0
+[00007fc21c907470] main playlist debug: rebuilding array of current - root プレイリスト
+[00007fc21c907470] main playlist debug: rebuild done - 0 items, index -1
+[00007fc21c907470] main playlist debug: nothing to play
+[00007fc21c915080] macosx interface warning: Process is translated!
+[00007fc21c907470] main playlist debug: processing request item: 【幽☆遊☆白書】 もしも「さよならbyebye」がAcid Jazzだったら？ [xc7yzjCwH5g].webm, node: メディアライブラリ, skip: 0
+[00007fc21c907470] main playlist debug: rebuilding array of current - root メディアライブラリ
+[00007fc21c907470] main playlist debug: rebuild done - 9 items, index 1
+[00007fc21c907470] main playlist debug: starting playback of new item
+[00007fc21c907470] main playlist debug: resyncing on 【幽☆遊☆白書】 もしも「さよならbyebye」がAcid Jazzだったら？ [xc7yzjCwH5g].webm
+[00007fc21c907470] main playlist debug: 【幽☆遊☆白書】 もしも「さよならbyebye」がAcid Jazzだったら？ [xc7yzjCwH5g].webm is at 1
+[00007fc21c907470] main playlist debug: creating new input thread
+[00007fc21c1f94f0] main input debug: Creating an input for '【幽☆遊☆白書】 もしも「さよならbyebye」がAcid Jazzだったら？ [xc7yzjCwH5g].webm'
+[00007fc21c907470] main playlist debug: requesting art for new input thread
+[00007fc21c1f94f0] main input debug: using timeshift granularity of 50 MiB
+[00007fc21c1f94f0] main input debug: using default timeshift path
+[00007fc21c1f94f0] main input debug: `file:///Users/apple/Downloads/%E3%80%90%E5%B9%BD%E2%98%86%E9%81%8A%E2%98%86%E7%99%BD%E6%9B%B8%E3%80%91%20%E3%82%82%E3%81%97%E3%82%82%E3%80%8C%E3%81%95%E3%82%88%E3%81%AA%E3%82%89byebye%E3%80%8D%E3%81%8CAcid%20Jazz%E3%81%A0%E3%81%A3%E3%81%9F%E3%82%89%EF%BC%9F%20%5Bxc7yzjCwH5g%5D.webm' gives access `file' demux `any' path `/Users/apple/Downloads/%E3%80%90%E5%B9%BD%E2%98%86%E9%81%8A%E2%98%86%E7%99%BD%E6%9B%B8%E3%80%91%20%E3%82%82%E3%81%97%E3%82%82%E3%80%8C%E3%81%95%E3%82%88%E3%81%AA%E3%82%89byebye%E3%80%8D%E3%81%8CAcid%20Jazz%E3%81%A0%E3%81%A3%E3%81%9F%E3%82%89%EF%BC%9F%20%5Bxc7yzjCwH5g%5D.webm'
+[00007fc21c876ae0] main meta fetcher debug: looking for meta fetcher module matching "any": 1 candidates
+[00007fc21c876ae0] lua meta fetcher debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/fetcher
+[00007fc21c876ae0] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/fetcher
+[00007fc1eb839a10] main input source debug: creating demux: access='file' demux='any' location='/Users/apple/Downloads/%E3%80%90%E5%B9%BD%E2%98%86%E9%81%8A%E2%98%86%E7%99%BD%E6%9B%B8%E3%80%91%20%E3%82%82%E3%81%97%E3%82%82%E3%80%8C%E3%81%95%E3%82%88%E3%81%AA%E3%82%89byebye%E3%80%8D%E3%81%8CAcid%20Jazz%E3%81%A0%E3%81%A3%E3%81%9F%E3%82%89%EF%BC%9F%20%5Bxc7yzjCwH5g%5D.webm' file='/Users/apple/Downloads/【幽☆遊☆白書】 もしも「さよならbyebye」がAcid Jazzだったら？ [xc7yzjCwH5g].webm'
+[00007fc1eb839c00] main demux debug: looking for access_demux module matching "file": 14 candidates
+[00007fc21c876ae0] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/fetcher
+[00007fc21c876ae0] main meta fetcher debug: no meta fetcher modules matched
+[00007fc21c876ae0] main art finder debug: looking for art finder module matching "any": 2 candidates
+[00007fc21c876ae0] lua art finder debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/art
+[00007fc1eb839c00] main demux debug: no access_demux modules matched
+[00007fc21c876ae0] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/art
+[00007fc21c876ae0] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/art
+[00007fc1eb83a050] main stream debug: creating access: file:///Users/apple/Downloads/%E3%80%90%E5%B9%BD%E2%98%86%E9%81%8A%E2%98%86%E7%99%BD%E6%9B%B8%E3%80%91%20%E3%82%82%E3%81%97%E3%82%82%E3%80%8C%E3%81%95%E3%82%88%E3%81%AA%E3%82%89byebye%E3%80%8D%E3%81%8CAcid%20Jazz%E3%81%A0%E3%81%A3%E3%81%9F%E3%82%89%EF%BC%9F%20%5Bxc7yzjCwH5g%5D.webm
+[00007fc1eb83a050] main stream debug:  (path: /Users/apple/Downloads/【幽☆遊☆白書】 もしも「さよならbyebye」がAcid Jazzだったら？ [xc7yzjCwH5g].webm)
+[00007fc1eb83a050] main stream debug: looking for access module matching "file": 24 candidates
+[00007fc21c876ae0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/00_musicbrainz.luac
+[00007fc1eb83a050] main stream debug: using access module "filesystem"
+[00007fc21c9e5590] main stream debug: looking for stream_filter module matching "prefetch,cache_read": 26 candidates
+[00007fc21c9e5590] cache_read stream debug: Using stream method for AStream*
+[00007fc21c9e5590] cache_read stream debug: starting pre-buffering
+[00007fc21c9e5590] cache_read stream debug: received first data after 0 ms
+[00007fc21c9e5590] cache_read stream debug: pre-buffering done 1024 bytes in 0s - 35714 KiB/s
+[00007fc21c9e5590] main stream debug: using stream_filter module "cache_read"
+[00007fc21c9d5b10] main stream debug: looking for stream_filter module matching "any": 26 candidates
+[00007fc21c9d5b10] lua stream debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/playlist
+[00007fc21c9d5b10] lua stream debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/playlist
+[00007fc21c9d5b10] lua stream debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/playlist
+[00007fc21c876ae0] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/00_musicbrainz.luac
+[00007fc21c876ae0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/01_googleimage.luac
+[00007fc21c9d5b10] lua stream debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/playlist/anevia_streams.luac
+[00007fc21c876ae0] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/01_googleimage.luac
+[00007fc21c876ae0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/02_frenchtv.luac
+[00007fc21c9d5b10] lua stream debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/playlist/anevia_xml.luac
+[00007fc21c876ae0] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/02_frenchtv.luac
+[00007fc21c876ae0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/03_lastfm.luac
+[00007fc21c9d5b10] lua stream debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/playlist/appletrailers.luac
+[00007fc21c876ae0] lua art finder debug: skipping script (unmatched scope) /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/03_lastfm.luac
+[00007fc21c876ae0] main art finder debug: no art finder modules matched
+[00007fc21c9d5b10] lua stream debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/playlist/bbc_co_uk.luac
+[00007fc21c876ae0] main meta fetcher debug: looking for meta fetcher module matching "any": 1 candidates
+[00007fc21c876ae0] lua meta fetcher debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/fetcher
+[00007fc21c876ae0] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/fetcher
+[00007fc21c876ae0] lua meta fetcher debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/fetcher
+[00007fc21c876ae0] main meta fetcher debug: no meta fetcher modules matched
+[00007fc21cadcbd0] main art finder debug: looking for art finder module matching "any": 2 candidates
+[00007fc21c9d5b10] lua stream debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/playlist/cue.luac
+[00007fc21cadcbd0] lua art finder debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/art
+[00007fc21cadcbd0] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/art
+[00007fc21cadcbd0] lua art finder debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/art
+[00007fc21cadcbd0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/00_musicbrainz.luac
+[00007fc21c9d5b10] lua stream debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/playlist/dailymotion.luac
+[00007fc21c9d5b10] lua stream debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/playlist/jamendo.luac
+[00007fc21cadcbd0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/01_googleimage.luac
+[00007fc21c9d5b10] lua stream debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/playlist/koreus.luac
+[00007fc21cadcbd0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/02_frenchtv.luac
+[00007fc21c9d5b10] lua stream debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/playlist/liveleak.luac
+[00007fc21c9d5b10] lua stream debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/playlist/newgrounds.luac
+[00007fc21cadcbd0] lua art finder debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/art/03_lastfm.luac
+[00007fc21c9d5b10] lua stream debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/playlist/rockbox_fm_presets.luac
+[00007fc21cadcbd0] main art finder debug: no art finder modules matched
+[00007fc21c9d5b10] lua stream debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/playlist/soundcloud.luac
+[00007fc21c9d5b10] lua stream debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/playlist/twitch.luac
+[00007fc21c9d5b10] lua stream debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/playlist/vimeo.luac
+[00007fc21c9d5b10] lua stream debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/playlist/vocaroo.luac
+[00007fc21c9d5b10] lua stream debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/playlist/youtube.luac
+[00007fc21c9d5b10] main stream debug: no stream_filter modules matched
+[00007fc21c847c40] main stream_directory debug: looking for stream_directory module matching "any": 1 candidates
+[00007fc21c847c40] main stream_directory debug: no stream_directory modules matched
+[00007fc1eb839a10] main input source debug: attachment of directory-extractor failed for file:///Users/apple/Downloads/%E3%80%90%E5%B9%BD%E2%98%86%E9%81%8A%E2%98%86%E7%99%BD%E6%9B%B8%E3%80%91%20%E3%82%82%E3%81%97%E3%82%82%E3%80%8C%E3%81%95%E3%82%88%E3%81%AA%E3%82%89byebye%E3%80%8D%E3%81%8CAcid%20Jazz%E3%81%A0%E3%81%A3%E3%81%9F%E3%82%89%EF%BC%9F%20%5Bxc7yzjCwH5g%5D.webm
+[00007fc21c847c40] main stream debug: looking for stream_filter module matching "record": 26 candidates
+[00007fc21c847c40] main stream debug: using stream_filter module "record"
+[00007fc1eb839a10] main input source debug: creating demux: access='file' demux='any' location='/Users/apple/Downloads/%E3%80%90%E5%B9%BD%E2%98%86%E9%81%8A%E2%98%86%E7%99%BD%E6%9B%B8%E3%80%91%20%E3%82%82%E3%81%97%E3%82%82%E3%80%8C%E3%81%95%E3%82%88%E3%81%AA%E3%82%89byebye%E3%80%8D%E3%81%8CAcid%20Jazz%E3%81%A0%E3%81%A3%E3%81%9F%E3%82%89%EF%BC%9F%20%5Bxc7yzjCwH5g%5D.webm' file='/Users/apple/Downloads/【幽☆遊☆白書】 もしも「さよならbyebye」がAcid Jazzだったら？ [xc7yzjCwH5g].webm'
+[00007fc21c8560f0] main demux debug: looking for demux module matching "any": 55 candidates
+[00007fc21c8560f0] mkv demux debug: |   + Seek head
+[00007fc21c8560f0] mkv demux debug: |   - info at 209
+[00007fc21c8560f0] mkv demux debug: |   + Information
+[00007fc21c8560f0] mkv demux debug: |   |   + TimecodeScale=1000000
+[00007fc21c8560f0] mkv demux debug: |   |   + Muxing Application=Lavf62.12.100
+[00007fc21c8560f0] mkv demux debug: |   |   + Writing Application=Lavf62.12.100
+[00007fc21c8560f0] mkv demux debug: |   |   + Duration=254121
+[00007fc21c8560f0] mkv demux debug: |   - tracks at 264
+[00007fc21c8560f0] mkv demux debug: |   + Tracks
+[00007fc21c8560f0] mkv demux debug: |   |   + Track Entry
+[00007fc21c8560f0] mkv demux debug: |   |   |   + Track Number=1
+[00007fc21c8560f0] mkv demux debug: |   |   |   + Track UID=ede7470a
+[00007fc21c8560f0] mkv demux debug: |   |   |   + Track Lacing=0
+[00007fc21c8560f0] mkv demux debug: |   |   |   + Track Language=`und'
+[00007fc21c8560f0] mkv demux debug: |   |   |   + Track CodecId=V_AV1
+[00007fc21c8560f0] mkv demux debug: |   |   |   + Track Type=video
+[00007fc21c8560f0] mkv demux debug: |   |   |   + Track Default Duration=41708333
+[00007fc21c8560f0] mkv demux debug: |   |   |   + Track Video
+[00007fc21c8560f0] mkv demux debug: |   |   |   |   + width=1920
+[00007fc21c8560f0] mkv demux debug: |   |   |   |   + height=1080
+[00007fc21c8560f0] mkv demux debug: |   |   |   |   + Video Colors
+[00007fc21c8560f0] mkv demux debug: |   |   |   |   |   + Unknown (N11libmatroska20KaxVideoColourMatrixE)
+[00007fc21c8560f0] mkv demux debug: |   |   |   + Track CodecPrivate size=20
+[00007fc21c8560f0] mkv demux debug: |   |   + Track Entry
+[00007fc21c8560f0] mkv demux debug: |   |   |   + Track Number=2
+[00007fc21c8560f0] mkv demux debug: |   |   |   + Track UID=5cf422c2
+[00007fc21c8560f0] mkv demux debug: |   |   |   + Track Lacing=0
+[00007fc21c8560f0] mkv demux debug: |   |   |   + Track Language=`eng'
+[00007fc21c8560f0] mkv demux debug: |   |   |   + Track CodecId=A_OPUS
+[00007fc21c8560f0] mkv demux debug: |   |   |   + Track Codec Delay =6500
+[00007fc21c8560f0] mkv demux debug: |   |   |   + Track Seek Preroll =80000
+[00007fc21c8560f0] mkv demux debug: |   |   |   + Track Type=audio
+[00007fc21c8560f0] mkv demux debug: |   |   |   + Track Audio
+[00007fc21c8560f0] mkv demux debug: |   |   |   |   + achan=2
+[00007fc21c8560f0] mkv demux debug: |   |   |   |   + afreq=48000
+[00007fc21c8560f0] mkv demux debug: |   |   |   |   + abits=32
+[00007fc21c8560f0] mkv demux debug: |   |   |   + Track CodecPrivate size=19
+[00007fc21c8560f0] mkv demux debug: |   - tags at 471
+[00007fc21c8560f0] mkv demux debug: |   + Tags
+[00007fc21c8560f0] mkv demux debug: + Tag
+[00007fc21c8560f0] mkv demux debug: |   + Targets
+[00007fc21c8560f0] mkv demux debug: |   + Simple Tag 
+[00007fc21c8560f0] mkv demux debug: |   |   + Meta MAJOR_BRAND: dash
+[00007fc21c8560f0] mkv demux debug: |   + Simple Tag 
+[00007fc21c8560f0] mkv demux debug: |   |   + Meta MINOR_VERSION: 0
+[00007fc21c8560f0] mkv demux debug: |   + Simple Tag 
+[00007fc21c8560f0] mkv demux debug: |   |   + Meta COMPATIBLE_BRANDS: iso6av01mp41
+[00007fc21c8560f0] mkv demux debug: |   + Simple Tag 
+[00007fc21c8560f0] mkv demux debug: |   |   + Meta ENCODER: Lavf62.12.100
+[00007fc21c8560f0] mkv demux debug: + Tag
+[00007fc21c8560f0] mkv demux debug: |   + Targets
+[00007fc21c8560f0] mkv demux debug: |   |   + TrackUID: 12168315787251500810
+[00007fc21c8560f0] mkv demux debug: |   |   + LoadTag Unknown (N11libmatroska14KaxTagTrackUIDE)
+[00007fc21c8560f0] mkv demux debug: |   + Simple Tag 
+[00007fc21c8560f0] mkv demux debug: |   |   + Meta HANDLER_NAME: ISO Media file produced by Google Inc.
+[00007fc21c8560f0] mkv demux debug: |   + Simple Tag 
+[00007fc21c8560f0] mkv demux debug: |   |   + Meta DURATION: 00:04:14.087000000
+[00007fc21c8560f0] mkv demux debug: + Tag
+[00007fc21c8560f0] mkv demux debug: |   + Targets
+[00007fc21c8560f0] mkv demux debug: |   |   + TrackUID: 17374327656701764290
+[00007fc21c8560f0] mkv demux debug: |   |   + LoadTag Unknown (N11libmatroska14KaxTagTrackUIDE)
+[00007fc21c8560f0] mkv demux debug: |   + Simple Tag 
+[00007fc21c8560f0] mkv demux debug: |   |   + Meta DURATION: 00:04:14.121000000
+[00007fc21c8560f0] mkv demux debug: loading tags done.
+[00007fc21c8560f0] mkv demux debug: |   - cues at 15361695
+[00007fc21c8560f0] mkv demux debug: |   + Cues
+[00007fc21c8560f0] mkv demux debug: MKV/Ebml Parser: m_el[mi_level] == NULL
+[00007fc21c8560f0] mkv demux debug: |   - loading cues done.
+[00007fc21c8560f0] mkv demux debug: |   + Void
+[00007fc21c8560f0] mkv demux debug: |   + Information
+[00007fc21c8560f0] mkv demux debug: |   + Tracks
+[00007fc21c8560f0] mkv demux debug: |   + Tags
+[00007fc21c8560f0] mkv demux debug: |   + Cluster
+[00007fc21c8560f0] mkv demux debug: NEW START CHAPTER uid=0
+[00007fc21c8560f0] mkv demux debug: found 2 es
+[00007fc21c1f94f0] main input debug: selecting program id=0
+[00007fc21c8560f0] mkv demux debug: seek: preroll{ track: 1, pts: 0, fpos: 762 skip: 762} 
+[00007fc21c8560f0] mkv demux debug: seek: preroll{ req: 1, start-pts: 1, start-fpos: 762} 
+[00007fc21c8560f0] mkv demux debug: Starting the UI Hook
+[00007fc21c8560f0] main demux debug: using demux module "mkv"
+[00007fc21c1f94f0] main input debug: looking for a subtitle file in /Users/apple/Downloads/
+[00007fc21cae20d0] main decoder debug: looking for video decoder module matching "any": 17 candidates
+[00007fc21cae20d0] avcodec decoder debug: using ffmpeg Lavc58.134.100
+[00007fc21cae20d0] avcodec decoder debug: CPU flags: 0x000813db
+[00007fc21cae20d0] avcodec decoder debug: allowing 1 thread(s) for decoding
+[00007fc21cae20d0] avcodec decoder debug: codec (av1) started
+[00007fc21cae20d0] avcodec decoder debug: trying format vaapi_vld
+[00007fc1eb83a6d0] main spu text debug: looking for text renderer module matching "any": 3 candidates
+[00007fc1eb83a6d0] main spu text debug: using text renderer module "freetype"
+[00007fc21c9f6220] main scale debug: looking for video converter module matching "any": 22 candidates
+[00007fc21c9f6220] swscale scale debug: 32x32 (32x32) chroma: YUVA -> 16x16 (16x16) chroma: RGBA with scaling using Bicubic (good quality)
+[00007fc21c9f6220] main scale debug: using video converter module "swscale"
+[00007fc21c8871a0] main scale debug: looking for video converter module matching "any": 22 candidates
+[00007fc21c915080] macosx interface debug: continuing playback at 58000000
+[00007fc21c8871a0] yuvp scale debug: YUVP to YUVA converter
+[00007fc21c8871a0] main scale debug: using video converter module "yuvp"
+[00007fc21b8364f0] main video output debug: Deinterlacing available
+[00007fc21b8364f0] main video output debug: deinterlace -1, mode auto, is_needed 0
+[00007fc21c88c530] main window debug: looking for vout window module matching "any": 1 candidates
+[00007fc21c88c530] macosx window debug: Opening video window
+[00007fc21c915080] macosx interface debug: toggle playlist from state: removed splitview 0, minimized view 0. Event 2
+[00007fc21c915080] macosx interface debug: toggle playlist to state: removed splitview 0, minimized view 0
+[00007fc21c915080] macosx interface debug: returning videoview with proposed position x=0, y=0, width=1920, height=1080
+[00007fc21c88c530] main window debug: using vout window module "macosx"
+[00007fc21b8364f0] main video output debug: Opening vout display wrapper
+[00007fc21c9b4550] main vout display debug: looking for vout display module matching "any": 7 candidates
+[00007fc21c9b4550] main vout display debug: VoutDisplayEvent 'resize' 1920x1080
+[00007fc21c9b4550] main vout display debug: VoutDisplayEvent 'resize' 0x0
+[00007fc21c9b4550] main vout display debug: VoutDisplayEvent 'resize' 2710x1524
+[00007fc1eb843d80] main generic debug: looking for glconv module matching "any": 1 candidates
+[00007fc1eb843d80] main generic debug: no glconv modules matched
+[00007fc21c9b4550] main vout display debug: using vout display module "caopengllayer"
+[00007fc21c9b4550] main vout display debug: A filter to adapt decoder VAOP to display I420 is needed
+[00007fc21c896270] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21c9b4550] main vout display debug: VoutDisplayEvent 'resize' 3360x1866
+[00007fc21c896270] chain filter debug: Trying to use chroma I422 as middle man
+[00007fc1eb848390] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb848390] chain filter debug: Trying to use chroma I420 as middle man
+[00007fc1eb848740] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb848740] chain filter error: Too high level of recursion (3)
+[00007fc1eb848740] main filter debug: no video converter modules matched
+[00007fc1eb848390] main filter error: Failed to create video converter
+[00007fc1eb848390] chain filter debug: Trying to use chroma I0AL as middle man
+[00007fc1eb848740] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb848740] chain filter error: Too high level of recursion (3)
+[00007fc1eb848740] main filter debug: no video converter modules matched
+[00007fc1eb848390] main filter error: Failed to create video converter
+[00007fc1eb848390] chain filter debug: Trying to use chroma I0AB as middle man
+[00007fc1eb848740] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb848740] chain filter error: Too high level of recursion (3)
+[00007fc1eb848740] main filter debug: no video converter modules matched
+[00007fc1eb848390] main filter error: Failed to create video converter
+[00007fc1eb848390] chain filter debug: Trying to use chroma I0FL as middle man
+[00007fc1eb848740] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb848740] chain filter error: Too high level of recursion (3)
+[00007fc1eb848740] main filter debug: no video converter modules matched
+[00007fc1eb848390] main filter error: Failed to create video converter
+[00007fc1eb848390] chain filter debug: Trying to use chroma RV32 as middle man
+[00007fc1eb848740] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb848740] chain filter error: Too high level of recursion (3)
+[00007fc1eb848740] main filter debug: no video converter modules matched
+[00007fc1eb848390] main filter error: Failed to create video converter
+[00007fc1eb848390] chain filter debug: Trying to use chroma RV24 as middle man
+[00007fc1eb848740] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb848740] chain filter error: Too high level of recursion (3)
+[00007fc1eb848740] main filter debug: no video converter modules matched
+[00007fc1eb848390] main filter error: Failed to create video converter
+[00007fc1eb848390] chain filter debug: Trying to use chroma BGRA as middle man
+[00007fc1eb848740] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb848740] chain filter error: Too high level of recursion (3)
+[00007fc1eb848740] main filter debug: no video converter modules matched
+[00007fc1eb848390] main filter error: Failed to create video converter
+[00007fc1eb848390] main filter debug: no video converter modules matched
+[00007fc21c896270] main filter error: Failed to create video converter
+[00007fc21c896270] chain filter debug: Trying to use chroma I0AL as middle man
+[00007fc1eb848390] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb848390] chain filter debug: Trying to use chroma I0AB as middle man
+[00007fc1eb848740] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb848740] chain filter error: Too high level of recursion (3)
+[00007fc1eb848740] main filter debug: no video converter modules matched
+[00007fc1eb848390] main filter error: Failed to create video converter
+[00007fc1eb848390] chain filter debug: Trying to use chroma I0FL as middle man
+[00007fc1eb848740] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb848740] chain filter error: Too high level of recursion (3)
+[00007fc1eb848740] main filter debug: no video converter modules matched
+[00007fc1eb848390] main filter error: Failed to create video converter
+[00007fc1eb848390] chain filter debug: Trying to use chroma I420 as middle man
+[00007fc21c896620] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21c896620] chain filter error: Too high level of recursion (3)
+[00007fc21c896620] main filter debug: no video converter modules matched
+[00007fc1eb848390] main filter error: Failed to create video converter
+[00007fc1eb848390] chain filter debug: Trying to use chroma I422 as middle man
+[00007fc21c896620] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21c896620] chain filter error: Too high level of recursion (3)
+[00007fc21c896620] main filter debug: no video converter modules matched
+[00007fc1eb848390] main filter error: Failed to create video converter
+[00007fc1eb848390] chain filter debug: Trying to use chroma RV32 as middle man
+[00007fc21c896620] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21c896620] chain filter error: Too high level of recursion (3)
+[00007fc21c896620] main filter debug: no video converter modules matched
+[00007fc1eb848390] main filter error: Failed to create video converter
+[00007fc1eb848390] chain filter debug: Trying to use chroma RV24 as middle man
+[00007fc21c896620] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21c896620] chain filter error: Too high level of recursion (3)
+[00007fc21c896620] main filter debug: no video converter modules matched
+[00007fc1eb848390] main filter error: Failed to create video converter
+[00007fc1eb848390] chain filter debug: Trying to use chroma BGRA as middle man
+[00007fc21c896620] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21c896620] chain filter error: Too high level of recursion (3)
+[00007fc21c896620] main filter debug: no video converter modules matched
+[00007fc1eb848390] main filter error: Failed to create video converter
+[00007fc1eb848390] main filter debug: no video converter modules matched
+[00007fc21c896270] main filter error: Failed to create video converter
+[00007fc21c896270] chain filter debug: Trying to use chroma I0AB as middle man
+[00007fc21c896620] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21c896620] chain filter debug: Trying to use chroma I0AL as middle man
+[00007fc21c896e50] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21c896e50] chain filter error: Too high level of recursion (3)
+[00007fc21c896e50] main filter debug: no video converter modules matched
+[00007fc21c896620] main filter error: Failed to create video converter
+[00007fc21c896620] chain filter debug: Trying to use chroma I0FL as middle man
+[00007fc21c896e50] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21c896e50] chain filter error: Too high level of recursion (3)
+[00007fc21c896e50] main filter debug: no video converter modules matched
+[00007fc21c896620] main filter error: Failed to create video converter
+[00007fc21c896620] chain filter debug: Trying to use chroma I420 as middle man
+[00007fc1eb848390] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb848390] chain filter error: Too high level of recursion (3)
+[00007fc1eb848390] main filter debug: no video converter modules matched
+[00007fc21c896620] main filter error: Failed to create video converter
+[00007fc21c896620] chain filter debug: Trying to use chroma I422 as middle man
+[00007fc1eb848390] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb848390] chain filter error: Too high level of recursion (3)
+[00007fc1eb848390] main filter debug: no video converter modules matched
+[00007fc21c896620] main filter error: Failed to create video converter
+[00007fc21c896620] chain filter debug: Trying to use chroma RV32 as middle man
+[00007fc1eb848390] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb848390] chain filter error: Too high level of recursion (3)
+[00007fc1eb848390] main filter debug: no video converter modules matched
+[00007fc21c896620] main filter error: Failed to create video converter
+[00007fc21c896620] chain filter debug: Trying to use chroma RV24 as middle man
+[00007fc1eb848390] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb848390] chain filter error: Too high level of recursion (3)
+[00007fc1eb848390] main filter debug: no video converter modules matched
+[00007fc21c896620] main filter error: Failed to create video converter
+[00007fc21c896620] chain filter debug: Trying to use chroma BGRA as middle man
+[00007fc1eb848390] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb848390] chain filter error: Too high level of recursion (3)
+[00007fc1eb848390] main filter debug: no video converter modules matched
+[00007fc21c896620] main filter error: Failed to create video converter
+[00007fc21c896620] main filter debug: no video converter modules matched
+[00007fc21c896270] main filter error: Failed to create video converter
+[00007fc21c896270] chain filter debug: Trying to use chroma I0FL as middle man
+[00007fc21c896620] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21c896620] chain filter debug: Trying to use chroma I0AL as middle man
+[00007fc21c896e50] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21c896e50] chain filter error: Too high level of recursion (3)
+[00007fc21c896e50] main filter debug: no video converter modules matched
+[00007fc21c896620] main filter error: Failed to create video converter
+[00007fc21c896620] chain filter debug: Trying to use chroma I0AB as middle man
+[00007fc21c896e50] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21c896e50] chain filter error: Too high level of recursion (3)
+[00007fc21c896e50] main filter debug: no video converter modules matched
+[00007fc21c896620] main filter error: Failed to create video converter
+[00007fc21c896620] chain filter debug: Trying to use chroma I420 as middle man
+[00007fc21c896e50] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21c896e50] chain filter error: Too high level of recursion (3)
+[00007fc21c896e50] main filter debug: no video converter modules matched
+[00007fc21c896620] main filter error: Failed to create video converter
+[00007fc21c896620] chain filter debug: Trying to use chroma I422 as middle man
+[00007fc21c896e50] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21c896e50] chain filter error: Too high level of recursion (3)
+[00007fc21c896e50] main filter debug: no video converter modules matched
+[00007fc21c896620] main filter error: Failed to create video converter
+[00007fc21c896620] chain filter debug: Trying to use chroma RV32 as middle man
+[00007fc1cba06450] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1cba06450] chain filter error: Too high level of recursion (3)
+[00007fc1cba06450] main filter debug: no video converter modules matched
+[00007fc21c896620] main filter error: Failed to create video converter
+[00007fc21c896620] chain filter debug: Trying to use chroma RV24 as middle man
+[00007fc1cba06450] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1cba06450] chain filter error: Too high level of recursion (3)
+[00007fc1cba06450] main filter debug: no video converter modules matched
+[00007fc21c896620] main filter error: Failed to create video converter
+[00007fc21c896620] chain filter debug: Trying to use chroma BGRA as middle man
+[00007fc1cba06450] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1cba06450] chain filter error: Too high level of recursion (3)
+[00007fc1cba06450] main filter debug: no video converter modules matched
+[00007fc21c896620] main filter error: Failed to create video converter
+[00007fc21c896620] main filter debug: no video converter modules matched
+[00007fc21c896270] main filter error: Failed to create video converter
+[00007fc21c896270] chain filter debug: Trying to use chroma RV32 as middle man
+[00007fc1cba06450] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1cba06450] chain filter debug: Trying to use chroma I420 as middle man
+[00007fc1cba06b30] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1cba06b30] chain filter error: Too high level of recursion (3)
+[00007fc1cba06b30] main filter debug: no video converter modules matched
+[00007fc1cba06450] main filter error: Failed to create video converter
+[00007fc1cba06450] chain filter debug: Trying to use chroma I422 as middle man
+[00007fc1cba06b30] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1cba06b30] chain filter error: Too high level of recursion (3)
+[00007fc1cba06b30] main filter debug: no video converter modules matched
+[00007fc1cba06450] main filter error: Failed to create video converter
+[00007fc1cba06450] chain filter debug: Trying to use chroma I0AL as middle man
+[00007fc1cba06b30] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1cba06b30] chain filter error: Too high level of recursion (3)
+[00007fc1cba06b30] main filter debug: no video converter modules matched
+[00007fc1cba06450] main filter error: Failed to create video converter
+[00007fc1cba06450] chain filter debug: Trying to use chroma I0AB as middle man
+[00007fc1cba06b30] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1cba06b30] chain filter error: Too high level of recursion (3)
+[00007fc1cba06b30] main filter debug: no video converter modules matched
+[00007fc1cba06450] main filter error: Failed to create video converter
+[00007fc1cba06450] chain filter debug: Trying to use chroma I0FL as middle man
+[00007fc1cba06b30] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1cba06b30] chain filter error: Too high level of recursion (3)
+[00007fc1cba06b30] main filter debug: no video converter modules matched
+[00007fc1cba06450] main filter error: Failed to create video converter
+[00007fc1cba06450] chain filter debug: Trying to use chroma RV24 as middle man
+[00007fc1cba06b30] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1cba06b30] chain filter error: Too high level of recursion (3)
+[00007fc1cba06b30] main filter debug: no video converter modules matched
+[00007fc1cba06450] main filter error: Failed to create video converter
+[00007fc1cba06450] chain filter debug: Trying to use chroma BGRA as middle man
+[00007fc1cba06b30] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1cba06b30] chain filter error: Too high level of recursion (3)
+[00007fc1cba06b30] main filter debug: no video converter modules matched
+[00007fc1cba06450] main filter error: Failed to create video converter
+[00007fc1cba06450] main filter debug: no video converter modules matched
+[00007fc21c896270] main filter error: Failed to create video converter
+[00007fc21c896270] chain filter debug: Trying to use chroma RV24 as middle man
+[00007fc1cba06450] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1cba06450] chain filter debug: Trying to use chroma I420 as middle man
+[00007fc1cba06b30] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1cba06b30] chain filter error: Too high level of recursion (3)
+[00007fc1cba06b30] main filter debug: no video converter modules matched
+[00007fc1cba06450] main filter error: Failed to create video converter
+[00007fc1cba06450] chain filter debug: Trying to use chroma I422 as middle man
+[00007fc1cba06b30] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1cba06b30] chain filter error: Too high level of recursion (3)
+[00007fc1cba06b30] main filter debug: no video converter modules matched
+[00007fc1cba06450] main filter error: Failed to create video converter
+[00007fc1cba06450] chain filter debug: Trying to use chroma I0AL as middle man
+[00007fc1cba06b30] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1cba06b30] chain filter error: Too high level of recursion (3)
+[00007fc1cba06b30] main filter debug: no video converter modules matched
+[00007fc1cba06450] main filter error: Failed to create video converter
+[00007fc1cba06450] chain filter debug: Trying to use chroma I0AB as middle man
+[00007fc1cba06b30] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1cba06b30] chain filter error: Too high level of recursion (3)
+[00007fc1cba06b30] main filter debug: no video converter modules matched
+[00007fc1cba06450] main filter error: Failed to create video converter
+[00007fc1cba06450] chain filter debug: Trying to use chroma I0FL as middle man
+[00007fc1cba06b30] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1cba06b30] chain filter error: Too high level of recursion (3)
+[00007fc1cba06b30] main filter debug: no video converter modules matched
+[00007fc1cba06450] main filter error: Failed to create video converter
+[00007fc1cba06450] chain filter debug: Trying to use chroma RV32 as middle man
+[00007fc1cba06b30] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1cba06b30] chain filter error: Too high level of recursion (3)
+[00007fc1cba06b30] main filter debug: no video converter modules matched
+[00007fc1cba06450] main filter error: Failed to create video converter
+[00007fc1cba06450] chain filter debug: Trying to use chroma BGRA as middle man
+[00007fc1cba06b30] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1cba06b30] chain filter error: Too high level of recursion (3)
+[00007fc1cba06b30] main filter debug: no video converter modules matched
+[00007fc1cba06450] main filter error: Failed to create video converter
+[00007fc1cba06450] main filter debug: no video converter modules matched
+[00007fc21c896270] main filter error: Failed to create video converter
+[00007fc21c896270] chain filter debug: Trying to use chroma BGRA as middle man
+[00007fc1cba06450] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1cba06450] chain filter debug: Trying to use chroma I420 as middle man
+[00007fc1cba06b30] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1cba06b30] chain filter error: Too high level of recursion (3)
+[00007fc1cba06b30] main filter debug: no video converter modules matched
+[00007fc1cba06450] main filter error: Failed to create video converter
+[00007fc1cba06450] chain filter debug: Trying to use chroma I422 as middle man
+[00007fc1cba06b30] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1cba06b30] chain filter error: Too high level of recursion (3)
+[00007fc1cba06b30] main filter debug: no video converter modules matched
+[00007fc1cba06450] main filter error: Failed to create video converter
+[00007fc1cba06450] chain filter debug: Trying to use chroma I0AL as middle man
+[00007fc1cba06b30] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1cba06b30] chain filter error: Too high level of recursion (3)
+[00007fc1cba06b30] main filter debug: no video converter modules matched
+[00007fc1cba06450] main filter error: Failed to create video converter
+[00007fc1cba06450] chain filter debug: Trying to use chroma I0AB as middle man
+[00007fc1cba06b30] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1cba06b30] chain filter error: Too high level of recursion (3)
+[00007fc1cba06b30] main filter debug: no video converter modules matched
+[00007fc1cba06450] main filter error: Failed to create video converter
+[00007fc1cba06450] chain filter debug: Trying to use chroma I0FL as middle man
+[00007fc1cba06b30] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1cba06b30] chain filter error: Too high level of recursion (3)
+[00007fc1cba06b30] main filter debug: no video converter modules matched
+[00007fc1cba06450] main filter error: Failed to create video converter
+[00007fc1cba06450] chain filter debug: Trying to use chroma RV32 as middle man
+[00007fc1cba06b30] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1cba06b30] chain filter error: Too high level of recursion (3)
+[00007fc1cba06b30] main filter debug: no video converter modules matched
+[00007fc1cba06450] main filter error: Failed to create video converter
+[00007fc1cba06450] chain filter debug: Trying to use chroma RV24 as middle man
+[00007fc21c896620] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21c896620] chain filter error: Too high level of recursion (3)
+[00007fc21c896620] main filter debug: no video converter modules matched
+[00007fc1cba06450] main filter error: Failed to create video converter
+[00007fc1cba06450] main filter debug: no video converter modules matched
+[00007fc21c896270] main filter error: Failed to create video converter
+[00007fc21c896270] main filter debug: no video converter modules matched
+[00007fc21c9b4550] main vout display error: Failed to create video converter
+[00007fc21c9b4550] main vout display error: Failed to adapt decoder format to display
+[00007fc21c9b4550] main vout display debug: removing module "caopengllayer"
+[00007fc21b8364f0] main video output error: video output creation failed
+[00007fc1eb83a6d0] main spu text debug: removing module "freetype"
+[00007fc21c8871a0] main scale debug: removing module "yuvp"
+[00007fc21c9f6220] main scale debug: removing module "swscale"
+[00007fc21cae20d0] main decoder error: failed to create video output
+[00007fc21cae20d0] avcodec decoder debug: trying format vdpau
+[00007fc21c9f6220] main spu text debug: looking for text renderer module matching "any": 3 candidates
+[00007fc21c915080] macosx interface debug: toggle playlist from state: removed splitview 0, minimized view 0. Event 2
+[00007fc21c9f6220] main spu text debug: using text renderer module "freetype"
+[00007fc21ce07550] main scale debug: looking for video converter module matching "any": 22 candidates
+[00007fc21ce07550] swscale scale debug: 32x32 (32x32) chroma: YUVA -> 16x16 (16x16) chroma: RGBA with scaling using Bicubic (good quality)
+[00007fc21ce07550] main scale debug: using video converter module "swscale"
+[00007fc21caeb7f0] main scale debug: looking for video converter module matching "any": 22 candidates
+[00007fc21caeb7f0] yuvp scale debug: YUVP to YUVA converter
+[00007fc21caeb7f0] main scale debug: using video converter module "yuvp"
+[00007fc21d3208f0] main video output debug: Deinterlacing available
+[00007fc21d3208f0] main video output debug: deinterlace -1, mode auto, is_needed 0
+[00007fc21fc137a0] main window debug: looking for vout window module matching "any": 1 candidates
+[00007fc21fc137a0] macosx window debug: Opening video window
+[00007fc21c915080] macosx interface debug: toggle playlist to state: removed splitview 0, minimized view 0
+[00007fc21c915080] macosx interface debug: toggle playlist from state: removed splitview 0, minimized view 0. Event 2
+[00007fc21c915080] macosx interface debug: toggle playlist to state: removed splitview 0, minimized view 0
+[00007fc21c915080] macosx interface debug: returning videoview with proposed position x=0, y=0, width=1920, height=1080
+[00007fc21fc137a0] main window debug: using vout window module "macosx"
+[00007fc21d3208f0] main video output debug: Opening vout display wrapper
+[00007fc21caecb10] main vout display debug: looking for vout display module matching "any": 7 candidates
+[00007fc21caecb10] main vout display debug: VoutDisplayEvent 'resize' 1920x1080
+[00007fc21caecb10] main vout display debug: VoutDisplayEvent 'resize' 0x0
+[00007fc21caecb10] main vout display debug: VoutDisplayEvent 'resize' 3360x1866
+[00007fc21c87f920] main generic debug: looking for glconv module matching "any": 1 candidates
+[00007fc21c87f920] main generic debug: no glconv modules matched
+[00007fc21caecb10] main vout display debug: VoutDisplayEvent 'resize' 3360x1866
+[00007fc21caecb10] main vout display debug: using vout display module "caopengllayer"
+[00007fc21caecb10] main vout display debug: A filter to adapt decoder VDV0 to display I420 is needed
+[00007fc21caf5ea0] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21caf5ea0] chain filter debug: Trying to use chroma I422 as middle man
+[00007fc21caf6250] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21caf6250] chain filter debug: Trying to use chroma I420 as middle man
+[00007fc21caf6860] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21caf6860] chain filter error: Too high level of recursion (3)
+[00007fc21caf6860] main filter debug: no video converter modules matched
+[00007fc21caf6250] main filter error: Failed to create video converter
+[00007fc21caf6250] chain filter debug: Trying to use chroma I0AL as middle man
+[00007fc21caf6860] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21caf6860] chain filter error: Too high level of recursion (3)
+[00007fc21caf6860] main filter debug: no video converter modules matched
+[00007fc21caf6250] main filter error: Failed to create video converter
+[00007fc21caf6250] chain filter debug: Trying to use chroma I0AB as middle man
+[00007fc21caf6860] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21caf6860] chain filter error: Too high level of recursion (3)
+[00007fc21caf6860] main filter debug: no video converter modules matched
+[00007fc21caf6250] main filter error: Failed to create video converter
+[00007fc21caf6250] chain filter debug: Trying to use chroma I0FL as middle man
+[00007fc21cc07e60] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21cc07e60] chain filter error: Too high level of recursion (3)
+[00007fc21cc07e60] main filter debug: no video converter modules matched
+[00007fc21caf6250] main filter error: Failed to create video converter
+[00007fc21caf6250] chain filter debug: Trying to use chroma RV32 as middle man
+[00007fc21cc07e60] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21cc07e60] chain filter error: Too high level of recursion (3)
+[00007fc21cc07e60] main filter debug: no video converter modules matched
+[00007fc21caf6250] main filter error: Failed to create video converter
+[00007fc21caf6250] chain filter debug: Trying to use chroma RV24 as middle man
+[00007fc21cc07e60] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21cc07e60] chain filter error: Too high level of recursion (3)
+[00007fc21cc07e60] main filter debug: no video converter modules matched
+[00007fc21caf6250] main filter error: Failed to create video converter
+[00007fc21caf6250] chain filter debug: Trying to use chroma BGRA as middle man
+[00007fc21cc07e60] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21cc07e60] chain filter error: Too high level of recursion (3)
+[00007fc21cc07e60] main filter debug: no video converter modules matched
+[00007fc21caf6250] main filter error: Failed to create video converter
+[00007fc21caf6250] main filter debug: no video converter modules matched
+[00007fc21caf5ea0] main filter error: Failed to create video converter
+[00007fc21caf5ea0] chain filter debug: Trying to use chroma I0AL as middle man
+[00007fc21cc07e60] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21cc07e60] chain filter debug: Trying to use chroma I0AB as middle man
+[00007fc21cc08470] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21cc08470] chain filter error: Too high level of recursion (3)
+[00007fc21cc08470] main filter debug: no video converter modules matched
+[00007fc21cc07e60] main filter error: Failed to create video converter
+[00007fc21cc07e60] chain filter debug: Trying to use chroma I0FL as middle man
+[00007fc21caf6250] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21caf6250] chain filter error: Too high level of recursion (3)
+[00007fc21caf6250] main filter debug: no video converter modules matched
+[00007fc21cc07e60] main filter error: Failed to create video converter
+[00007fc21cc07e60] chain filter debug: Trying to use chroma I420 as middle man
+[00007fc21ce078e0] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21ce078e0] chain filter error: Too high level of recursion (3)
+[00007fc21ce078e0] main filter debug: no video converter modules matched
+[00007fc21cc07e60] main filter error: Failed to create video converter
+[00007fc21cc07e60] chain filter debug: Trying to use chroma I422 as middle man
+[00007fc21c896500] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21c896500] chain filter error: Too high level of recursion (3)
+[00007fc21c896500] main filter debug: no video converter modules matched
+[00007fc21cc07e60] main filter error: Failed to create video converter
+[00007fc21cc07e60] chain filter debug: Trying to use chroma RV32 as middle man
+[00007fc21caf6250] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21caf6250] chain filter error: Too high level of recursion (3)
+[00007fc21caf6250] main filter debug: no video converter modules matched
+[00007fc21cc07e60] main filter error: Failed to create video converter
+[00007fc21cc07e60] chain filter debug: Trying to use chroma RV24 as middle man
+[00007fc21cc08470] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21cc08470] chain filter error: Too high level of recursion (3)
+[00007fc21cc08470] main filter debug: no video converter modules matched
+[00007fc21cc07e60] main filter error: Failed to create video converter
+[00007fc21cc07e60] chain filter debug: Trying to use chroma BGRA as middle man
+[00007fc21cc08470] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21cc08470] chain filter error: Too high level of recursion (3)
+[00007fc21cc08470] main filter debug: no video converter modules matched
+[00007fc21cc07e60] main filter error: Failed to create video converter
+[00007fc21cc07e60] main filter debug: no video converter modules matched
+[00007fc21caf5ea0] main filter error: Failed to create video converter
+[00007fc21caf5ea0] chain filter debug: Trying to use chroma I0AB as middle man
+[00007fc21cc07e60] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21cc07e60] chain filter debug: Trying to use chroma I0AL as middle man
+[00007fc21cc08470] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21cc08470] chain filter error: Too high level of recursion (3)
+[00007fc21cc08470] main filter debug: no video converter modules matched
+[00007fc21cc07e60] main filter error: Failed to create video converter
+[00007fc21cc07e60] chain filter debug: Trying to use chroma I0FL as middle man
+[00007fc21fc13de0] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21fc13de0] chain filter error: Too high level of recursion (3)
+[00007fc21fc13de0] main filter debug: no video converter modules matched
+[00007fc21cc07e60] main filter error: Failed to create video converter
+[00007fc21cc07e60] chain filter debug: Trying to use chroma I420 as middle man
+[00007fc21cc08470] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21cc08470] chain filter error: Too high level of recursion (3)
+[00007fc21cc08470] main filter debug: no video converter modules matched
+[00007fc21cc07e60] main filter error: Failed to create video converter
+[00007fc21cc07e60] chain filter debug: Trying to use chroma I422 as middle man
+[00007fc21cc08470] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21cc08470] chain filter error: Too high level of recursion (3)
+[00007fc21cc08470] main filter debug: no video converter modules matched
+[00007fc21cc07e60] main filter error: Failed to create video converter
+[00007fc21cc07e60] chain filter debug: Trying to use chroma RV32 as middle man
+[00007fc21cb07070] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21cb07070] chain filter error: Too high level of recursion (3)
+[00007fc21cb07070] main filter debug: no video converter modules matched
+[00007fc21cc07e60] main filter error: Failed to create video converter
+[00007fc21cc07e60] chain filter debug: Trying to use chroma RV24 as middle man
+[00007fc21cc08470] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21cc08470] chain filter error: Too high level of recursion (3)
+[00007fc21cc08470] main filter debug: no video converter modules matched
+[00007fc21cc07e60] main filter error: Failed to create video converter
+[00007fc21cc07e60] chain filter debug: Trying to use chroma BGRA as middle man
+[00007fc21cc08470] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21cc08470] chain filter error: Too high level of recursion (3)
+[00007fc21cc08470] main filter debug: no video converter modules matched
+[00007fc21cc07e60] main filter error: Failed to create video converter
+[00007fc21cc07e60] main filter debug: no video converter modules matched
+[00007fc21caf5ea0] main filter error: Failed to create video converter
+[00007fc21caf5ea0] chain filter debug: Trying to use chroma I0FL as middle man
+[00007fc21cc07e60] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21cc07e60] chain filter debug: Trying to use chroma I0AL as middle man
+[00007fc21cc08470] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21cc08470] chain filter error: Too high level of recursion (3)
+[00007fc21cc08470] main filter debug: no video converter modules matched
+[00007fc21cc07e60] main filter error: Failed to create video converter
+[00007fc21cc07e60] chain filter debug: Trying to use chroma I0AB as middle man
+[00007fc21caf6250] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21caf6250] chain filter error: Too high level of recursion (3)
+[00007fc21caf6250] main filter debug: no video converter modules matched
+[00007fc21cc07e60] main filter error: Failed to create video converter
+[00007fc21cc07e60] chain filter debug: Trying to use chroma I420 as middle man
+[00007fc21c896500] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21c896500] chain filter error: Too high level of recursion (3)
+[00007fc21c896500] main filter debug: no video converter modules matched
+[00007fc21cc07e60] main filter error: Failed to create video converter
+[00007fc21cc07e60] chain filter debug: Trying to use chroma I422 as middle man
+[00007fc21c896500] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21c896500] chain filter error: Too high level of recursion (3)
+[00007fc21c896500] main filter debug: no video converter modules matched
+[00007fc21cc07e60] main filter error: Failed to create video converter
+[00007fc21cc07e60] chain filter debug: Trying to use chroma RV32 as middle man
+[00007fc21c896500] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21c896500] chain filter error: Too high level of recursion (3)
+[00007fc21c896500] main filter debug: no video converter modules matched
+[00007fc21cc07e60] main filter error: Failed to create video converter
+[00007fc21cc07e60] chain filter debug: Trying to use chroma RV24 as middle man
+[00007fc21c896500] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21c896500] chain filter error: Too high level of recursion (3)
+[00007fc21c896500] main filter debug: no video converter modules matched
+[00007fc21cc07e60] main filter error: Failed to create video converter
+[00007fc21cc07e60] chain filter debug: Trying to use chroma BGRA as middle man
+[00007fc21c896500] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21c896500] chain filter error: Too high level of recursion (3)
+[00007fc21c896500] main filter debug: no video converter modules matched
+[00007fc21cc07e60] main filter error: Failed to create video converter
+[00007fc21cc07e60] main filter debug: no video converter modules matched
+[00007fc21caf5ea0] main filter error: Failed to create video converter
+[00007fc21caf5ea0] chain filter debug: Trying to use chroma RV32 as middle man
+[00007fc21c896500] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21c896500] chain filter debug: Trying to use chroma I420 as middle man
+[00007fc21c896b10] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21c896b10] chain filter error: Too high level of recursion (3)
+[00007fc21c896b10] main filter debug: no video converter modules matched
+[00007fc21c896500] main filter error: Failed to create video converter
+[00007fc21c896500] chain filter debug: Trying to use chroma I422 as middle man
+[00007fc21c896b10] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21c896b10] chain filter error: Too high level of recursion (3)
+[00007fc21c896b10] main filter debug: no video converter modules matched
+[00007fc21c896500] main filter error: Failed to create video converter
+[00007fc21c896500] chain filter debug: Trying to use chroma I0AL as middle man
+[00007fc21caf6250] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21caf6250] chain filter error: Too high level of recursion (3)
+[00007fc21caf6250] main filter debug: no video converter modules matched
+[00007fc21c896500] main filter error: Failed to create video converter
+[00007fc21c896500] chain filter debug: Trying to use chroma I0AB as middle man
+[00007fc21caf6250] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21caf6250] chain filter error: Too high level of recursion (3)
+[00007fc21caf6250] main filter debug: no video converter modules matched
+[00007fc21c896500] main filter error: Failed to create video converter
+[00007fc21c896500] chain filter debug: Trying to use chroma I0FL as middle man
+[00007fc21caf6250] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21caf6250] chain filter error: Too high level of recursion (3)
+[00007fc21caf6250] main filter debug: no video converter modules matched
+[00007fc21c896500] main filter error: Failed to create video converter
+[00007fc21c896500] chain filter debug: Trying to use chroma RV24 as middle man
+[00007fc21caf6250] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21caf6250] chain filter error: Too high level of recursion (3)
+[00007fc21caf6250] main filter debug: no video converter modules matched
+[00007fc21c896500] main filter error: Failed to create video converter
+[00007fc21c896500] chain filter debug: Trying to use chroma BGRA as middle man
+[00007fc21c896b10] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc21c896b10] chain filter error: Too high level of recursion (3)
+[00007fc21c896b10] main filter debug: no video converter modules matched
+[00007fc21c896500] main filter error: Failed to create video converter
+[00007fc21c896500] main filter debug: no video converter modules matched
+[00007fc21caf5ea0] main filter error: Failed to create video converter
+[00007fc21caf5ea0] chain filter debug: Trying to use chroma RV24 as middle man
+[00007fc1eb83a210] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb83a210] chain filter debug: Trying to use chroma I420 as middle man
+[00007fc1eb83a5c0] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb83a5c0] chain filter error: Too high level of recursion (3)
+[00007fc1eb83a5c0] main filter debug: no video converter modules matched
+[00007fc1eb83a210] main filter error: Failed to create video converter
+[00007fc1eb83a210] chain filter debug: Trying to use chroma I422 as middle man
+[00007fc1eb83a5c0] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb83a5c0] chain filter error: Too high level of recursion (3)
+[00007fc1eb83a5c0] main filter debug: no video converter modules matched
+[00007fc1eb83a210] main filter error: Failed to create video converter
+[00007fc1eb83a210] chain filter debug: Trying to use chroma I0AL as middle man
+[00007fc1eb83a5c0] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb83a5c0] chain filter error: Too high level of recursion (3)
+[00007fc1eb83a5c0] main filter debug: no video converter modules matched
+[00007fc1eb83a210] main filter error: Failed to create video converter
+[00007fc1eb83a210] chain filter debug: Trying to use chroma I0AB as middle man
+[00007fc1eb83a5c0] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb83a5c0] chain filter error: Too high level of recursion (3)
+[00007fc1eb83a5c0] main filter debug: no video converter modules matched
+[00007fc1eb83a210] main filter error: Failed to create video converter
+[00007fc1eb83a210] chain filter debug: Trying to use chroma I0FL as middle man
+[00007fc1eb83a5c0] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb83a5c0] chain filter error: Too high level of recursion (3)
+[00007fc1eb83a5c0] main filter debug: no video converter modules matched
+[00007fc1eb83a210] main filter error: Failed to create video converter
+[00007fc1eb83a210] chain filter debug: Trying to use chroma RV32 as middle man
+[00007fc1eb83a5c0] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb83a5c0] chain filter error: Too high level of recursion (3)
+[00007fc1eb83a5c0] main filter debug: no video converter modules matched
+[00007fc1eb83a210] main filter error: Failed to create video converter
+[00007fc1eb83a210] chain filter debug: Trying to use chroma BGRA as middle man
+[00007fc1eb83a5c0] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb83a5c0] chain filter error: Too high level of recursion (3)
+[00007fc1eb83a5c0] main filter debug: no video converter modules matched
+[00007fc1eb83a210] main filter error: Failed to create video converter
+[00007fc1eb83a210] main filter debug: no video converter modules matched
+[00007fc21caf5ea0] main filter error: Failed to create video converter
+[00007fc21caf5ea0] chain filter debug: Trying to use chroma BGRA as middle man
+[00007fc1eb83a210] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb83a210] chain filter debug: Trying to use chroma I420 as middle man
+[00007fc1eb83a5c0] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb83a5c0] chain filter error: Too high level of recursion (3)
+[00007fc1eb83a5c0] main filter debug: no video converter modules matched
+[00007fc1eb83a210] main filter error: Failed to create video converter
+[00007fc1eb83a210] chain filter debug: Trying to use chroma I422 as middle man
+[00007fc1eb83a5c0] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb83a5c0] chain filter error: Too high level of recursion (3)
+[00007fc1eb83a5c0] main filter debug: no video converter modules matched
+[00007fc1eb83a210] main filter error: Failed to create video converter
+[00007fc1eb83a210] chain filter debug: Trying to use chroma I0AL as middle man
+[00007fc1eb83a5c0] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb83a5c0] chain filter error: Too high level of recursion (3)
+[00007fc1eb83a5c0] main filter debug: no video converter modules matched
+[00007fc1eb83a210] main filter error: Failed to create video converter
+[00007fc1eb83a210] chain filter debug: Trying to use chroma I0AB as middle man
+[00007fc1eb83a5c0] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb83a5c0] chain filter error: Too high level of recursion (3)
+[00007fc1eb83a5c0] main filter debug: no video converter modules matched
+[00007fc1eb83a210] main filter error: Failed to create video converter
+[00007fc1eb83a210] chain filter debug: Trying to use chroma I0FL as middle man
+[00007fc1eb83a5c0] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb83a5c0] chain filter error: Too high level of recursion (3)
+[00007fc1eb83a5c0] main filter debug: no video converter modules matched
+[00007fc1eb83a210] main filter error: Failed to create video converter
+[00007fc1eb83a210] chain filter debug: Trying to use chroma RV32 as middle man
+[00007fc1eb83a5c0] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb83a5c0] chain filter error: Too high level of recursion (3)
+[00007fc1eb83a5c0] main filter debug: no video converter modules matched
+[00007fc1eb83a210] main filter error: Failed to create video converter
+[00007fc1eb83a210] chain filter debug: Trying to use chroma RV24 as middle man
+[00007fc1eb83a5c0] main filter debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb83a5c0] chain filter error: Too high level of recursion (3)
+[00007fc1eb83a5c0] main filter debug: no video converter modules matched
+[00007fc1eb83a210] main filter error: Failed to create video converter
+[00007fc1eb83a210] main filter debug: no video converter modules matched
+[00007fc21caf5ea0] main filter error: Failed to create video converter
+[00007fc21caf5ea0] main filter debug: no video converter modules matched
+[00007fc21caecb10] main vout display error: Failed to create video converter
+[00007fc21caecb10] main vout display error: Failed to adapt decoder format to display
+[00007fc21caecb10] main vout display debug: removing module "caopengllayer"
+[00007fc21d3208f0] main video output error: video output creation failed
+[00007fc21c9f6220] main spu text debug: removing module "freetype"
+[00007fc21caeb7f0] main scale debug: removing module "yuvp"
+[00007fc21ce07550] main scale debug: removing module "swscale"
+[00007fc21cae20d0] main decoder error: failed to create video output
+[00007fc21c915080] macosx interface debug: toggle playlist from state: removed splitview 0, minimized view 0. Event 2
+[00007fc21c915080] macosx interface debug: toggle playlist to state: removed splitview 0, minimized view 0
+[00007fc21cae20d0] dav1d decoder debug: Using dav1d version 1.3.0 with 8 threads
+[00007fc21cae20d0] main decoder debug: using video decoder module "dav1d"
+[00007fc21c877b20] main decoder debug: looking for audio decoder module matching "any": 21 candidates
+[00007fc21c877b20] main decoder debug: using audio decoder module "opus"
+[00007fc21c894710] main demux meta debug: looking for meta reader module matching "any": 2 candidates
+[00007fc21c894710] lua demux meta debug: Trying Lua scripts in /Users/apple/Library/Application Support/org.videolan.vlc/lua/meta/reader
+[00007fc21c894710] lua demux meta debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/lua/meta/reader
+[00007fc21c894710] lua demux meta debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/reader
+[00007fc21c894710] lua demux meta debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/reader/filename.luac
+[00007fc21c894710] main demux meta debug: no meta reader modules matched
+[00007fc21c1f94f0] main input debug: `file:///Users/apple/Downloads/%E3%80%90%E5%B9%BD%E2%98%86%E9%81%8A%E2%98%86%E7%99%BD%E6%9B%B8%E3%80%91%20%E3%82%82%E3%81%97%E3%82%82%E3%80%8C%E3%81%95%E3%82%88%E3%81%AA%E3%82%89byebye%E3%80%8D%E3%81%8CAcid%20Jazz%E3%81%A0%E3%81%A3%E3%81%9F%E3%82%89%EF%BC%9F%20%5Bxc7yzjCwH5g%5D.webm' successfully opened
+[00007fc21c1f94f0] main input debug: Buffering 0%
+[00007fc21c877b20] opus decoder debug: Opus audio with 2 channels
+[00007fc21c8560f0] mkv demux debug: SET_TIME to 58000000
+[00007fc21c8560f0] mkv demux debug: seek request to i_pos = 58000000
+[00007fc21c907470] main playlist debug: reusing audio output
+[00007fc21ca0a450] main audio output debug: VLC is looking for: 'f32l' 48000 Hz Stereo frame=1 samples/8 bytes
+[00007fc21ca0a450] auhal audio output debug: attempting to use device 0
+[00007fc21ca0a450] auhal audio output debug: using default audio device 103
+[00007fc21c8560f0] mkv demux debug: seek: preroll{ track: 1, pts: 52928000, fpos: 3247177 skip: 3247177} 
+[00007fc21c8560f0] mkv demux debug: seek: preroll{ track: 2, pts: 57981000, fpos: 3589388 skip: 3589388} 
+[00007fc21c8560f0] mkv demux debug: seek: preroll{ req: 58000001, start-pts: 52928001, start-fpos: 3247177} 
+[00007fc21c1f94f0] main input debug: Buffering 0%
+[00007fc21ca0a450] auhal audio output debug: Current device has a latency of 1520 us
+[00007fc21c1f94f0] main input debug: Buffering 1%
+[00007fc21c1f94f0] main input debug: Buffering 2%
+[00007fc1cba05e40] main spu text debug: looking for text renderer module matching "any": 3 candidates
+[00007fc21c1f94f0] main input debug: Buffering 3%
+[00007fc21c1f94f0] main input debug: Buffering 4%
+[00007fc21c1f94f0] main input debug: Buffering 5%
+[00007fc21c1f94f0] main input debug: Buffering 6%
+[00007fc21c1f94f0] main input debug: Buffering 7%
+[00007fc21c1f94f0] main input debug: Buffering 8%
+[00007fc21c1f94f0] main input debug: Buffering 9%
+[00007fc21c1f94f0] main input debug: Buffering 10%
+[00007fc21c1f94f0] main input debug: Buffering 11%
+[00007fc21c1f94f0] main input debug: Buffering 12%
+[00007fc21c1f94f0] main input debug: Buffering 13%
+[00007fc21c1f94f0] main input debug: Buffering 14%
+[00007fc21c1f94f0] main input debug: Buffering 15%
+[00007fc21c1f94f0] main input debug: Buffering 16%
+[00007fc21c1f94f0] main input debug: Buffering 17%
+[00007fc21c1f94f0] main input debug: Buffering 18%
+[00007fc21c1f94f0] main input debug: Buffering 19%
+[00007fc21c1f94f0] main input debug: Buffering 20%
+[00007fc21c1f94f0] main input debug: Buffering 21%
+[00007fc21c1f94f0] main input debug: Buffering 22%
+[00007fc21c1f94f0] main input debug: Buffering 23%
+[00007fc21c1f94f0] main input debug: Buffering 24%
+[00007fc21c1f94f0] main input debug: Buffering 25%
+[00007fc21c1f94f0] main input debug: Buffering 26%
+[00007fc21c1f94f0] main input debug: Buffering 27%
+[00007fc21c1f94f0] main input debug: Buffering 28%
+[00007fc21c1f94f0] main input debug: Buffering 29%
+[00007fc21c1f94f0] main input debug: Buffering 30%
+[00007fc21c1f94f0] main input debug: Buffering 31%
+[00007fc21c1f94f0] main input debug: Buffering 32%
+[00007fc21c1f94f0] main input debug: Buffering 33%
+[00007fc21c1f94f0] main input debug: Buffering 34%
+[00007fc21c1f94f0] main input debug: Buffering 35%
+[00007fc21c1f94f0] main input debug: Buffering 36%
+[00007fc21c1f94f0] main input debug: Buffering 37%
+[00007fc21c1f94f0] main input debug: Buffering 38%
+[00007fc21c1f94f0] main input debug: Buffering 39%
+[00007fc21c1f94f0] main input debug: Buffering 40%
+[00007fc21c1f94f0] main input debug: Buffering 41%
+[00007fc21c1f94f0] main input debug: Buffering 42%
+[00007fc21c1f94f0] main input debug: Buffering 43%
+[00007fc21c1f94f0] main input debug: Buffering 44%
+[00007fc21c1f94f0] main input debug: Buffering 45%
+[00007fc21c1f94f0] main input debug: Buffering 46%
+[00007fc21c1f94f0] main input debug: Buffering 47%
+[00007fc21c1f94f0] main input debug: Buffering 48%
+[00007fc21c1f94f0] main input debug: Buffering 49%
+[00007fc21c1f94f0] main input debug: Buffering 50%
+[00007fc21c1f94f0] main input debug: Buffering 51%
+[00007fc21c1f94f0] main input debug: Buffering 52%
+[00007fc21c1f94f0] main input debug: Buffering 53%
+[00007fc21c1f94f0] main input debug: Buffering 54%
+[00007fc21c1f94f0] main input debug: Buffering 55%
+[00007fc21c1f94f0] main input debug: Buffering 56%
+[00007fc21c1f94f0] main input debug: Buffering 57%
+[00007fc21c1f94f0] main input debug: Buffering 58%
+[00007fc21c1f94f0] main input debug: Buffering 59%
+[00007fc21c1f94f0] main input debug: Buffering 60%
+[00007fc21c1f94f0] main input debug: Buffering 61%
+[00007fc21c1f94f0] main input debug: Buffering 62%
+[00007fc21c1f94f0] main input debug: Buffering 63%
+[00007fc21c1f94f0] main input debug: Buffering 64%2026-09-26 11:16:07.481 VLC[32785:10448376] Can't find app with identifier com.apple.iTunes
+
+[00007fc21c1f94f0] main input debug: Buffering 65%
+[00007fc21c1f94f0] main input debug: Buffering 66%
+[00007fc21c1f94f0] main input debug: Buffering 67%
+[00007fc21c1f94f0] main input debug: Buffering 68%
+[00007fc21c1f94f0] main input debug: Buffering 69%
+[00007fc21c1f94f0] main input debug: Buffering 70%
+[00007fc21c1f94f0] main input debug: Buffering 71%
+[00007fc21c1f94f0] main input debug: Buffering 72%
+[00007fc21c1f94f0] main input debug: Buffering 73%
+[00007fc21c1f94f0] main input debug: Buffering 74%
+[00007fc21c1f94f0] main input debug: Buffering 75%
+[00007fc21c1f94f0] main input debug: Buffering 76%
+[00007fc21c1f94f0] main input debug: Buffering 77%
+[00007fc21c1f94f0] main input debug: Buffering 78%
+[00007fc21c1f94f0] main input debug: Buffering 79%
+[00007fc21c1f94f0] main input debug: Buffering 80%
+[00007fc21c1f94f0] main input debug: Buffering 81%
+[00007fc21c1f94f0] main input debug: Buffering 82%
+[00007fc21c1f94f0] main input debug: Buffering 83%
+[00007fc21c1f94f0] main input debug: Buffering 84%
+[00007fc21c1f94f0] main input debug: Buffering 85%
+[00007fc21c1f94f0] main input debug: Buffering 86%
+[00007fc21c1f94f0] main input debug: Buffering 87%
+[00007fc21c1f94f0] main input debug: Buffering 88%
+[00007fc21c1f94f0] main input debug: Buffering 89%
+[00007fc21c1f94f0] main input debug: Buffering 90%
+[00007fc21c1f94f0] main input debug: Buffering 91%
+[00007fc21c1f94f0] main input debug: Buffering 92%
+[00007fc21c1f94f0] main input debug: Buffering 93%
+[00007fc21c1f94f0] main input debug: Buffering 94%
+[00007fc21c1f94f0] main input debug: Buffering 95%
+[00007fc21c1f94f0] main input debug: Buffering 96%
+[00007fc1cba05e40] main spu text debug: using text renderer module "freetype"
+[00007fc21c1f94f0] main input debug: Buffering 97%
+[00007fc21c881b20] main scale debug: looking for video converter module matching "any": 22 candidates
+[00007fc21c1f94f0] main input debug: Buffering 98%
+[00007fc21c1f94f0] main input debug: Buffering 99%
+[00007fc21c1f94f0] main input debug: Stream buffering done (6093 ms in 7 ms)
+[00007fc21c881b20] swscale scale debug: 32x32 (32x32) chroma: YUVA -> 16x16 (16x16) chroma: RGBA with scaling using Bicubic (good quality)
+[00007fc21c881b20] main scale debug: using video converter module "swscale"
+[00007fc1eb8467e0] main scale debug: looking for video converter module matching "any": 22 candidates
+[00007fc1eb8467e0] yuvp scale debug: YUVP to YUVA converter
+[00007fc1eb8467e0] main scale debug: using video converter module "yuvp"
+[00007fc21d0ef0f0] main video output debug: Deinterlacing available
+[00007fc21d0ef0f0] main video output debug: deinterlace -1, mode auto, is_needed 0
+[00007fc1eb846b70] main window debug: looking for vout window module matching "any": 1 candidates
+[00007fc1eb846b70] macosx window debug: Opening video window
+[00007fc21ca0a450] auhal audio output debug: output layout of AUHAL is Stereo
+[00007fc21ca0a450] auhal audio output debug: VLC will output: Stereo
+[00007fc21ca0a450] auhal audio output debug: Current AU format: [48000.000000][mcpl][9][8][1][8][2][32]
+[00007fc21ca0a450] auhal audio output debug: analog output successfully opened
+[00007fc21ca0a450] main audio output debug: output 'f32l' 48000 Hz Stereo frame=1 samples/8 bytes
+[00007fc21cae93f0] main volume debug: looking for audio volume module matching "any": 2 candidates
+[00007fc21c915080] macosx interface debug: Activated assertion NoIdleSleepAssertion through IOKit (39209)
+[00007fc21cae93f0] main volume debug: using audio volume module "float_mixer"
+[00007fc21ca0a450] main audio output debug: input 'f32l' 48000 Hz Stereo frame=1 samples/8 bytes
+[00007fc21cae3390] main audio filter debug: looking for audio filter module matching "scaletempo": 16 candidates
+[00007fc21cae3390] scaletempo audio filter debug: format: 48000 rate, 2 nch, 4 bps, fl32
+[00007fc21cae3390] scaletempo audio filter debug: params: 30 stride, 0.200 overlap, 14 search
+[00007fc21cae3390] scaletempo audio filter debug: 1.000 scale, 1440.000 stride_in, 1440 stride_out, 1152 standing, 288 overlap, 672 search, 2400 queue, fl32 mode
+[00007fc21cae3390] main audio filter debug: using audio filter module "scaletempo"
+[00007fc21ca0a450] main audio output debug: conversion: 'f32l'->'f32l' 48000 Hz->48000 Hz Stereo->Stereo
+[00007fc21ca0a450] main audio output debug: conversion pipeline complete
+[00007fc21ca0a450] main audio output debug: conversion: 'f32l'->'f32l' 48000 Hz->48000 Hz Stereo->Stereo
+[00007fc21ca0a450] main audio output debug: conversion pipeline complete
+[00007fc21cae3720] main audio resampler debug: looking for audio resampler module matching "any": 3 candidates
+[00007fc21cae3720] main audio resampler debug: using audio resampler module "samplerate"
+2026-09-26 11:16:07.745 VLC[32785:10448376] Can't find app with identifier com.apple.iTunes
+[00007fc21c915080] macosx interface debug: Releasing old IOKit other assertion (39209)
+[00007fc21c915080] macosx interface debug: Activated assertion NoDisplaySleepAssertion through IOKit (39213)
+[00007fc21c915080] macosx interface debug: toggle playlist from state: removed splitview 0, minimized view 0. Event 2
+[00007fc21c915080] macosx interface debug: toggle playlist to state: removed splitview 0, minimized view 0
+[00007fc21c915080] macosx interface debug: returning videoview with proposed position x=0, y=0, width=1920, height=1080
+[00007fc1eb846b70] main window debug: using vout window module "macosx"
+[00007fc21d0ef0f0] main video output debug: Opening vout display wrapper
+[00007fc1cba08240] main vout display debug: looking for vout display module matching "any": 7 candidates
+[00007fc1cba08240] main vout display debug: VoutDisplayEvent 'resize' 1920x1080
+[00007fc1cba08240] main vout display debug: VoutDisplayEvent 'resize' 0x0
+[00007fc1cba08240] main vout display debug: VoutDisplayEvent 'resize' 3024x1662
+[00007fc1cba08240] main vout display debug: using vout display module "caopengllayer"
+[00007fc21d0ef0f0] main video output debug: original format sz 1920x1152, of (0,0), vsz 1920x1080, 4cc I420, sar 1:1, msk r0x0 g0x0 b0x0
+[00007fc1cba05e40] main spu text debug: removing module "freetype"
+[00007fc21cae0250] main spu text debug: looking for text renderer module matching "any": 3 candidates
+[00007fc21cae0250] main spu text debug: using text renderer module "freetype"
+[00007fc1cba08240] main vout display debug: VoutDisplayEvent 'mouse button' 0 t=6
+[00007fc21cae20d0] main decoder debug: end of video preroll
+[00007fc21cae20d0] main decoder debug: Received first picture
+[00007fc21c1f94f0] main input debug: Decoder wait done in 644 ms
+[00007fc21ca0a450] main audio output warning: buffer too late (-57990067 us): dropped
+[00007fc21c877b20] main decoder debug: end of audio preroll
+[00007fc1cba08240] main vout display debug: VoutDisplayEvent 'resize' 3360x1866
+[00007fc21d0ef0f0] main video output warning: picture is too late to be displayed (missing 27 ms)
+[00007fc1cba08240] main vout display debug: VoutDisplayEvent 'mouse button' 0 t=7
+[00007fc1cba08240] main vout display debug: VoutDisplayEvent 'resize' 3024x1702
+[00007fc1cba08240] main vout display debug: VoutDisplayEvent 'resize' 1512x851
+[00007fc21c877b20] main decoder debug: toggling resume
+[00007fc21c915080] macosx interface debug: Releasing IOKit monitor sleep blocker (39213)
+[00007fc21cae20d0] main decoder debug: toggling resume
+[00007fc1cba08240] main vout display debug: auto hiding mouse cursor
+[00007fc21c915080] macosx interface debug: Starting renderer discovery service Bonjour_renderer
+[00007fc1cbb3ffe0] main renderer discovery debug: looking for renderer_discovery module matching "Bonjour_renderer": 1 candidates
+[00007fc1cbb3ffe0] bonjour renderer discovery: starting discovery
+[00007fc1cbb3ffe0] bonjour renderer discovery debug: ftp does not match current discovery mode, skipping
+[00007fc1cbb3ffe0] bonjour renderer discovery debug: smb does not match current discovery mode, skipping
+[00007fc1cbb3ffe0] bonjour renderer discovery debug: nfs does not match current discovery mode, skipping
+[00007fc1cbb3ffe0] bonjour renderer discovery debug: sftp does not match current discovery mode, skipping
+[00007fc1cbb3ffe0] bonjour renderer discovery debug: starting discovery for type _googlecast._tcp.
+[00007fc1cbb3ffe0] main renderer discovery debug: using renderer_discovery module "bonjour"
+[00007fc1cba08240] main vout display debug: auto hiding mouse cursor
+[00007fc21c915080] macosx interface debug: activating or triggering extension 'Advanced A-B Looper', id 0
+[00007fc21b746030] lua generic debug: Activating extension 'Advanced A-B Looper'
+[00007fc21b746030] lua generic debug: Creating dialog 'Advanced A-B Looper'
+[00007fc1cba08240] main vout display debug: auto hiding mouse cursor
+[00007fc1cba08240] main vout display debug: auto hiding mouse cursor
+[00007fc1cbb3ffe0] main renderer discovery debug: removing module "bonjour"
+[00007fc1cbb3ffe0] bonjour renderer discovery: stopped discovery
+[00007fc1cba08240] main vout display debug: auto hiding mouse cursor
+[00007fc1cba08240] main vout display debug: auto hiding mouse cursor
+[00007fc1cba08240] main vout display debug: auto hiding mouse cursor
+[00007fc21c9055f0] main libvlc debug: exiting
+[00007fc21c9055f0] main libvlc debug: removing all interfaces
+[00007fc21c915080] main interface debug: removing module "macosx"
+[00007fc21c915080] macosx interface debug: Closing macosx interface
+[00007fc21c915080] macosx interface debug: applicationWillTerminate called
+[00007fc21c915080] macosx interface debug: Playback has been ended
+[00007fc21c915080] macosx interface debug: Deinitializing input manager
+[00007fc21c915080] macosx interface debug: Store current playback position of 0.238468
+[00007fc1cba08240] main vout display debug: VoutDisplayEvent 'resize' 3024x1662
+[00007fc21c915080] macosx interface debug: toggle playlist from state: removed splitview 0, minimized view 0. Event 2
+[00007fc21c915080] macosx interface debug: toggle playlist to state: removed splitview 0, minimized view 0
+[00007fc21c915080] macosx interface debug: Deinitializing VLCMain object
+[00007fc21c915080] macosx interface debug: Deinitializing extensions manager
+[00007fc21c915080] macosx interface debug: Deinitializing dialog provider
+[00007fc21c915080] macosx interface debug: Deinitializing main menu
+[00007fc21c915080] macosx interface debug: Deinitializing playlist model
+[00007fc21c80fdd0] main interface debug: removing module "hotkeys"
+[00007fc21b71b290] [advanced_ab_looper_intf] main interface debug: removing module "lua"
+[00007fc21b71b290] [advanced_ab_looper_intf] lua interface error: Error loading script /Users/apple/Library/Application Support/org.videolan.vlc/lua/intf/advanced_ab_looper_intf.lua: ...rg.videolan.vlc/lua/intf/advanced_ab_looper_intf.lua:90: Interrupted.
+[00007fc21c907470] main playlist debug: destroying
+[00007fc21c907470] main playlist debug: deactivating the playlist
+[00007fc21c907470] main playlist debug: incoming request - stopping current input
+[00007fc21cae20d0] main decoder debug: killing decoder fourcc `av01'
+[00007fc21cae20d0] main decoder debug: removing module "dav1d"
+[00007fc21c907470] main playlist debug: saving a free vout
+[00007fc21c907470] main playlist debug: reusing provided vout
+[00007fc21c877b20] main decoder debug: killing decoder fourcc `Opus'
+[00007fc21c877b20] main decoder debug: removing module "opus"
+[00007fc21cae3720] main audio resampler debug: removing module "samplerate"
+[00007fc21cae3390] main audio filter debug: removing module "scaletempo"
+[00007fc21ca0a450] auhal audio output debug: Stopping the auhal module
+[00007fc21cae93f0] main volume debug: removing module "float_mixer"
+[00007fc21c907470] main playlist debug: keeping audio output
+[00007fc21c8560f0] main demux debug: removing module "mkv"
+[00007fc21c1f94f0] main input debug: Program doesn't contain anymore ES
+[00007fc21c8560f0] mkv demux debug: Stopping the UI Hook
+[00007fc21c847c40] main stream debug: removing module "record"
+[00007fc21c9e5590] main stream debug: removing module "cache_read"
+[00007fc1eb83a050] main stream debug: removing module "filesystem"
+[00007fc21c907470] main playlist debug: dead input
+[00007fc21c907470] main playlist debug: nothing to play
+[00007fc21d0ef0f0] main video output debug: destroying useless vout
+[00007fc1cba08240] main vout display debug: removing module "caopengllayer"
+[00007fc21cae0250] main spu text debug: removing module "freetype"
+[00007fc1eb8467e0] main scale debug: removing module "yuvp"
+[00007fc21c881b20] main scale debug: removing module "swscale"
+[00007fc21ca0a450] main audio output debug: removing module "auhal"
+[00007fc21ca4fe30] main playlist export debug: saving media library to file /Users/apple/Library/Application Support/org.videolan.vlc/ml.xspf.tmp32785
+[00007fc21ca4fe30] main playlist export debug: looking for playlist export module matching "export-xspf": 4 candidates
+[00007fc21ca4fe30] main playlist export debug: using playlist export module "export"
+[00007fc21ca4fe30] main playlist export debug: removing module "export"
+[00007fc21c907470] main playlist debug: deleting item `GMT20260914-010058_Recording_1724x812.mp4'
+[00007fc21c907470] main playlist debug: deleting item `粉雪 - レミオロメン【ノリノリREMIX】 [sjRYYBZHGWA].webm'
+[00007fc21c907470] main playlist debug: deleting item `粉雪 - レミオロメン【ノリノリREMIX ⧸ ドパガキREMIX】 [jgt9BGvZ8Vg].webm'
+[00007fc21c907470] main playlist debug: deleting item `よるしか.flac'
+[00007fc21c907470] main playlist debug: deleting item `ハナミズキ - 一青窈【ノリノリREMIX】 [_NHK4_86xj0].webm'
+[00007fc21c907470] main playlist debug: deleting item `【東京事変】もしも「群青日和」がドラムンベースだったら？ [tog8kYHMh-8].webm'
+[00007fc21c907470] main playlist debug: deleting item `【幽☆遊☆白書】もしも「さよならbye bye」がドラムンベースだったら？疾走感と切なさが溶け合うLiquid Funk💫 [pMcO0IWMfk4].webm'
+[00007fc21c907470] main playlist debug: deleting item `【幽☆遊☆白書】 もしも「さよならbyebye」がAcid Jazzだったら？ [xc7yzjCwH5g].webm'
+[00007fc21c907470] main playlist debug: deleting item `input.mp3'
+[00007fc21c907470] main playlist debug: deleting item `メディアライブラリ'
+[00007fc21c907470] main playlist debug: deleting item `プレイリスト'
+[00007fc21b70fe70] main keystore debug: removing module "memory"
+
+===== environment =====
+2026年 9月26日 土曜日 11時17分02秒 JST
+ProductName:		macOS
+ProductVersion:		14.4.1
+BuildVersion:		23E224
+VLCバージョン 3.0.20 Vetinari (3.0.20-0-g6f0d0ab126)
+d-fuによってDavids-MBP.fritz.box (Nov  1 2023 13:50:16)上でコンパイルされました
+コンパイラー: clang: warning: argument unused during compilation: '-mmacosx-version-min=10.7' [-Wunused-command-line-argument]
+法律によって認められる範囲で、このプログラムにはいかなる保証もありません。
+exit_status=0
