@@ -40,13 +40,14 @@ install_assets() {
   install -m 0644 "$REPO_DIR/src/intf/advanced_ab_looper_intf.lua" "$INTF_DIR/advanced_ab_looper_intf.lua"
 }
 
-initialize_or_enable_loops() {
+initialize_defaults_once() {
   mkdir -p "$VLC_DATA"
   if [ ! -f "$STATE_FILE" ]; then
     cat > "$STATE_FILE" <<'EOF'
-version=2
+version=3
 enabled=1
-active_id=1
+active_start_us=671000000
+active_end_us=674000000
 loop_count=2
 loop_1_id=1
 loop_1_start_us=671000000
@@ -55,12 +56,6 @@ loop_2_id=2
 loop_2_start_us=611000000
 loop_2_end_us=759000000
 EOF
-    return
-  fi
-
-  # Preserve all saved loop ranges. Re-enable the last active loop when possible.
-  if grep -q '^active_id=[1-9][0-9]*$' "$STATE_FILE"; then
-    /usr/bin/sed -i '' 's/^enabled=.*/enabled=1/' "$STATE_FILE"
   fi
 }
 
@@ -123,18 +118,17 @@ sayline "[1/6] Downloading/updating all assets from GitHub..."
 clone_or_update
 sayline "[2/6] Installing the VLC extension and loop engine..."
 install_assets
-sayline "[3/6] Initializing saved loop points and LOOP ON..."
-initialize_or_enable_loops
+sayline "[3/6] Initializing defaults only on first run..."
+initialize_defaults_once
 sayline "[4/6] Running smoke tests..."
 bash "$REPO_DIR/tests/smoke_test.sh"
 sayline "[5/6] Starting VLC with the loop engine..."
 
-# Any files dropped onto RUN.command or supplied as arguments are opened by VLC.
 ("$VLC_BIN" --extraintf=luaintf --lua-intf=advanced_ab_looper_intf --verbose=2 "$@" 2>&1 | tee "$LOG_FILE") &
 VLC_PIPE_PID=$!
 
 sayline "[6/6] Opening Advanced A-B Looper automatically..."
 open_looper_ui
-sayline "READY: loop #1 is ON by default on first run. Existing saved loops are preserved."
+sayline "READY: A/B fields are the runtime source of truth. Saved loops are presets only."
 
 wait "$VLC_PIPE_PID"
