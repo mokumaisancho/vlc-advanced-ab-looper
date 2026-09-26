@@ -1,8 +1,8 @@
--- Advanced A-B Looper for VLC 3.x - multi-loop UI
+-- Advanced A-B Looper for VLC 3.x - compact multi-loop UI
 -- Requires advanced_ab_looper_intf.lua running as a Lua interface.
 
 local dlg
-local start_input, end_input, loop_list
+local start_input, end_input, loop_selector
 local status_label, current_label, active_label
 local loops = {}
 local next_id = 1
@@ -13,7 +13,7 @@ local STATE_FILE, RUNTIME_FILE
 function descriptor()
     return {
         title = "Advanced A-B Looper",
-        version = "2.1.0",
+        version = "2.2.0",
         author = "OpenAI",
         shortdesc = "Multi time-specified A-B loop",
         description = "Store multiple A-B ranges and activate one exact loop at a time in VLC 3.x.",
@@ -78,10 +78,10 @@ local function find_loop(id)
 end
 
 local function selected_id()
-    if not loop_list then return nil end
-    local sel = loop_list:get_selection()
-    for id, _ in pairs(sel) do return tonumber(id) end
-    return nil
+    if not loop_selector then return nil end
+    local id = loop_selector:get_value()
+    if not id or id == 0 then return nil end
+    return tonumber(id)
 end
 
 local function set_status(s)
@@ -111,19 +111,27 @@ local function write_state()
     return true
 end
 
-local function refresh_list()
-    loop_list:clear()
+local function refresh_selector()
+    loop_selector:clear()
     sort_loops()
+    loop_selector:add_value("Select loop...", 0)
     for _, lp in ipairs(loops) do
-        local marker = (lp.id == active_id) and ((enabled and " [ON] ") or " [ACTIVE] ") or " "
-        local text = string.format("%d%s  %s  ->  %s", lp.id, marker, format_time(lp.start_us), format_time(lp.end_us))
-        loop_list:add_value(text, lp.id)
+        local marker = ""
+        if lp.id == active_id then marker = enabled and " [ON]" or " [ACTIVE]" end
+        local text = string.format("#%d  %s -> %s%s", lp.id, format_time(lp.start_us), format_time(lp.end_us), marker)
+        loop_selector:add_value(text, lp.id)
     end
     if active_id ~= 0 then
         local lp = find_loop(active_id)
-        if lp then active_label:set_text(string.format("ACTIVE #%d: %s -> %s | LOOP %s", active_id, format_time(lp.start_us), format_time(lp.end_us), enabled and "ON" or "OFF"))
-        else active_label:set_text("ACTIVE: none | LOOP OFF") end
-    else active_label:set_text("ACTIVE: none | LOOP OFF") end
+        if lp then
+            active_label:set_text(string.format("ACTIVE #%d   %s -> %s   |   LOOP %s",
+                active_id, format_time(lp.start_us), format_time(lp.end_us), enabled and "ON" or "OFF"))
+        else
+            active_label:set_text("ACTIVE: none   |   LOOP OFF")
+        end
+    else
+        active_label:set_text("ACTIVE: none   |   LOOP OFF")
+    end
     dlg:update()
 end
 
@@ -172,7 +180,7 @@ function add_loop()
     next_id = next_id + 1
     local ok,msg = write_state()
     if not ok then set_status(msg); return end
-    refresh_list()
+    refresh_selector()
     set_status("Added loop #"..id)
 end
 
@@ -186,7 +194,7 @@ function update_loop()
     lp.start_us, lp.end_us = a,b
     local ok,msg = write_state()
     if not ok then set_status(msg); return end
-    refresh_list()
+    refresh_selector()
     set_status("Updated loop #"..id)
 end
 
@@ -199,7 +207,7 @@ function delete_loop()
     if active_id == id then active_id=0; enabled=false end
     local ok,msg = write_state()
     if not ok then set_status(msg); return end
-    refresh_list()
+    refresh_selector()
     set_status("Deleted loop #"..id)
 end
 
@@ -223,7 +231,7 @@ function activate_selected()
     if not ok then set_status(msg); return end
     local input = vlc.object.input()
     if input then vlc.var.set(input, "time", lp.start_us) end
-    refresh_list()
+    refresh_selector()
     set_status("LOOP ON: #"..id)
 end
 
@@ -231,7 +239,7 @@ function stop_loop()
     enabled=false
     local ok,msg=write_state()
     if not ok then set_status(msg); return end
-    refresh_list()
+    refresh_selector()
     set_status("LOOP OFF")
 end
 
@@ -244,7 +252,7 @@ end
 function refresh_current()
     local us=current_time_us()
     if not us then current_label:set_text("CURRENT: no media"); dlg:update(); return end
-    current_label:set_text("CURRENT: "..format_time(us).."  ("..tostring(us).." us)")
+    current_label:set_text("CURRENT: "..format_time(us).."   ("..tostring(us).." us)")
     dlg:update()
 end
 
@@ -253,6 +261,7 @@ function set_a_current()
     if not us then set_status("No media playing"); return end
     start_input:set_text(format_time(us)); refresh_current()
 end
+
 function set_b_current()
     local us=current_time_us()
     if not us then set_status("No media playing"); return end
@@ -262,24 +271,33 @@ end
 function activate()
     load_state()
     dlg=vlc.dialog("Advanced A-B Looper")
-    current_label=dlg:add_label("CURRENT: --:--:--.---",1,1,5,1)
-    dlg:add_button("Refresh time",refresh_current,6,1,1,1)
-    dlg:add_label("A",1,2,1,1)
-    start_input=dlg:add_text_input("00:11:11.000",2,2,3,1)
-    dlg:add_button("Current -> A",set_a_current,5,2,2,1)
-    dlg:add_label("B",1,3,1,1)
-    end_input=dlg:add_text_input("00:11:14.000",2,3,3,1)
-    dlg:add_button("Current -> B",set_b_current,5,3,2,1)
-    dlg:add_button("Add",add_loop,1,4,1,1)
-    dlg:add_button("Update",update_loop,2,4,1,1)
-    dlg:add_button("Delete",delete_loop,3,4,1,1)
-    dlg:add_button("Load",load_selected,4,4,1,1)
-    dlg:add_button("LOOP ON",activate_selected,5,4,1,1)
-    dlg:add_button("LOOP OFF",stop_loop,6,4,1,1)
-    loop_list=dlg:add_list(1,5,6,5)
-    active_label=dlg:add_label("ACTIVE: none | LOOP OFF",1,10,6,1)
-    status_label=dlg:add_label("Ready",1,11,6,1)
-    refresh_list(); refresh_current()
+
+    current_label=dlg:add_label("CURRENT: --:--:--.---",1,1,4,1,420,24)
+    dlg:add_button("Refresh",refresh_current,5,1,1,1,90,28)
+
+    dlg:add_label("A",1,2,1,1,20,24)
+    start_input=dlg:add_text_input("00:11:11.000",2,2,3,1,250,28)
+    dlg:add_button("Current -> A",set_a_current,5,2,1,1,110,28)
+
+    dlg:add_label("B",1,3,1,1,20,24)
+    end_input=dlg:add_text_input("00:11:14.000",2,3,3,1,250,28)
+    dlg:add_button("Current -> B",set_b_current,5,3,1,1,110,28)
+
+    dlg:add_label("Saved loops",1,4,1,1,80,24)
+    loop_selector=dlg:add_dropdown(2,4,4,1,350,28)
+
+    dlg:add_button("Add",add_loop,1,5,1,1,75,28)
+    dlg:add_button("Update",update_loop,2,5,1,1,75,28)
+    dlg:add_button("Delete",delete_loop,3,5,1,1,75,28)
+    dlg:add_button("Load",load_selected,4,5,1,1,75,28)
+    dlg:add_button("LOOP ON",activate_selected,5,5,1,1,90,28)
+    dlg:add_button("LOOP OFF",stop_loop,6,5,1,1,90,28)
+
+    active_label=dlg:add_label("ACTIVE: none   |   LOOP OFF",1,6,6,1,520,24)
+    status_label=dlg:add_label("Ready",1,7,6,1,520,24)
+
+    refresh_selector()
+    refresh_current()
 end
 
 function deactivate() end
