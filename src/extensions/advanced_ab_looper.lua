@@ -1,5 +1,6 @@
--- Advanced A-B Looper for VLC 3.x - compact multi-loop UI
--- Requires advanced_ab_looper_intf.lua running as a Lua interface.
+-- Advanced A-B Looper for VLC 3.x - screen-driven loop UI
+-- A/B fields are the source of truth for LOOP ON.
+-- Saved loops are presets only; loading a preset only copies its values into A/B.
 
 local dlg
 local start_input, end_input, loop_selector
@@ -7,16 +8,17 @@ local status_label, current_label, active_label
 local loops = {}
 local next_id = 1
 local enabled = false
-local active_id = 0
+local active_start_us = nil
+local active_end_us = nil
 local STATE_FILE, RUNTIME_FILE
 
 function descriptor()
     return {
         title = "Advanced A-B Looper",
-        version = "2.2.0",
+        version = "2.3.0",
         author = "OpenAI",
-        shortdesc = "Multi time-specified A-B loop",
-        description = "Store multiple A-B ranges and activate one exact loop at a time in VLC 3.x.",
+        shortdesc = "Screen-driven multi time-specified A-B loop",
+        description = "A/B fields define the runtime loop. Saved ranges are presets only.",
         capabilities = {}
     }
 end
@@ -25,6 +27,7 @@ local function state_path()
     if not STATE_FILE then STATE_FILE = vlc.config.userdatadir() .. "/advanced_ab_looper.state" end
     return STATE_FILE
 end
+
 local function runtime_path()
     if not RUNTIME_FILE then RUNTIME_FILE = vlc.config.userdatadir() .. "/advanced_ab_looper.runtime" end
     return RUNTIME_FILE
@@ -38,20 +41,25 @@ end
 local function parse_time(text)
     text = trim(text):gsub(",", ".")
     if text == "" then return nil end
+
     local h, m, s = text:match("^(%d+):(%d+):(%d+%.?%d*)$")
     if h then
         h, m, s = tonumber(h), tonumber(m), tonumber(s)
         if m >= 60 or s >= 60 then return nil end
         return math.floor((h * 3600 + m * 60 + s) * 1000000 + 0.5)
     end
+
     m, s = text:match("^(%d+):(%d+%.?%d*)$")
     if m then
         m, s = tonumber(m), tonumber(s)
         if s >= 60 then return nil end
         return math.floor((m * 60 + s) * 1000000 + 0.5)
     end
+
     local seconds = tonumber(text)
-    if seconds and seconds >= 0 then return math.floor(seconds * 1000000 + 0.5) end
+    if seconds and seconds >= 0 then
+        return math.floor(seconds * 1000000 + 0.5)
+    end
     return nil
 end
 
@@ -69,11 +77,13 @@ local function format_time(us)
 end
 
 local function sort_loops()
-    table.sort(loops, function(a,b) return a.id < b.id end)
+    table.sort(loops, function(a, b) return a.id < b.id end)
 end
 
 local function find_loop(id)
-    for i, lp in ipairs(loops) do if lp.id == id then return lp, i end end
+    for i, lp in ipairs(loops) do
+        if lp.id == id then return lp, i end
+    end
     return nil, nil
 end
 
@@ -93,16 +103,20 @@ local function write_state()
     local tmp = state_path() .. ".tmp"
     local f = vlc.io.open(tmp, "w")
     if not f then return false, "Cannot write state file" end
+
     sort_loops()
-    f:write("version=2\n")
+    f:write("version=3\n")
     f:write("enabled=" .. (enabled and "1" or "0") .. "\n")
-    f:write("active_id=" .. tostring(active_id or 0) .. "\n")
+    f:write("active_start_us=" .. tostring(active_start_us or 0) .. "\n")
+    f:write("active_end_us=" .. tostring(active_end_us or 0) .. "\n")
     f:write("loop_count=" .. tostring(#loops) .. "\n")
+
     for i, lp in ipairs(loops) do
-        f:write("loop_"..i.."_id="..tostring(lp.id).."\n")
-        f:write("loop_"..i.."_start_us="..tostring(lp.start_us).."\n")
-        f:write("loop_"..i.."_end_us="..tostring(lp.end_us).."\n")
+        f:write("loop_" .. i .. "_id=" .. tostring(lp.id) .. "\n")
+        f:write("loop_" .. i .. "_start_us=" .. tostring(lp.start_us) .. "\n")
+        f:write("loop_" .. i .. "_end_us=" .. tostring(lp.end_us) .. "\n")
     end
+
     f:flush()
     f = nil
     os.remove(state_path())
@@ -111,190 +125,257 @@ local function write_state()
     return true
 end
 
-local function refresh_selector()
-    loop_selector:clear()
-    sort_loops()
-    loop_selector:add_value("Select loop...", 0)
-    for _, lp in ipairs(loops) do
-        local marker = ""
-        if lp.id == active_id then marker = enabled and " [ON]" or " [ACTIVE]" end
-        local text = string.format("#%d  %s -> %s%s", lp.id, format_time(lp.start_us), format_time(lp.end_us), marker)
-        loop_selector:add_value(text, lp.id)
-    end
-    if active_id ~= 0 then
-        local lp = find_loop(active_id)
-        if lp then
-            active_label:set_text(string.format("ACTIVE #%d   %s -> %s   |   LOOP %s",
-                active_id, format_time(lp.start_us), format_time(lp.end_us), enabled and "ON" or "OFF"))
-        else
-            active_label:set_text("ACTIVE: none   |   LOOP OFF")
-        end
+local function refresh_active_label()
+    if active_start_us and active_end_us and active_end_us > active_start_us then
+        active_label:set_text(string.format(
+            "ACTIVE: %s -> %s   |   LOOP %s",
+            format_time(active_start_us),
+            format_time(active_end_us),
+            enabled and "ON" or "OFF"
+        ))
     else
         active_label:set_text("ACTIVE: none   |   LOOP OFF")
     end
+end
+
+local function refresh_selector()
+    loop_selector:clear()
+    sort_loops()
+    loop_selector:add_value("Select saved preset...", 0)
+    for _, lp in ipairs(loops) do
+        local text = string.format("#%d  %s -> %s", lp.id, format_time(lp.start_us), format_time(lp.end_us))
+        loop_selector:add_value(text, lp.id)
+    end
+    refresh_active_label()
     dlg:update()
 end
 
 local function load_state()
     local f = vlc.io.open(state_path(), "r")
     if not f then return end
+
     local p = {}
     local content = f:read("*all") or ""
     f = nil
+
     for line in content:gmatch("[^\r\n]+") do
-        local k,v = line:match("^([%w_]+)=(.-)$")
-        if k then p[k]=v end
+        local k, v = line:match("^([%w_]+)=(.-)$")
+        if k then p[k] = v end
     end
-    if tonumber(p.version) ~= 2 then return end
-    enabled = p.enabled == "1"
-    active_id = tonumber(p.active_id) or 0
+
+    local version = tonumber(p.version) or 0
     loops = {}
     local n = tonumber(p.loop_count) or 0
     local max_id = 0
-    for i=1,n do
-        local id = tonumber(p["loop_"..i.."_id"])
-        local a = tonumber(p["loop_"..i.."_start_us"])
-        local b = tonumber(p["loop_"..i.."_end_us"])
+
+    for i = 1, n do
+        local id = tonumber(p["loop_" .. i .. "_id"])
+        local a = tonumber(p["loop_" .. i .. "_start_us"])
+        local b = tonumber(p["loop_" .. i .. "_end_us"])
         if id and a and b and a >= 0 and b > a then
-            table.insert(loops, {id=id, start_us=a, end_us=b})
-            if id > max_id then max_id=id end
+            table.insert(loops, {id = id, start_us = a, end_us = b})
+            if id > max_id then max_id = id end
         end
     end
     next_id = max_id + 1
+
+    enabled = p.enabled == "1"
+    active_start_us = nil
+    active_end_us = nil
+
+    if version >= 3 then
+        local a = tonumber(p.active_start_us)
+        local b = tonumber(p.active_end_us)
+        if a and b and a >= 0 and b > a then
+            active_start_us = a
+            active_end_us = b
+        else
+            enabled = false
+        end
+    elseif version == 2 then
+        -- v2 migration: derive the runtime range once from the formerly active preset.
+        local old_id = tonumber(p.active_id) or 0
+        local lp = find_loop(old_id)
+        if lp then
+            active_start_us = lp.start_us
+            active_end_us = lp.end_us
+        else
+            enabled = false
+        end
+    else
+        enabled = false
+    end
 end
 
 local function validate_inputs()
     local a = parse_time(start_input:get_text())
     local b = parse_time(end_input:get_text())
-    if not a then return nil,nil,"Invalid A time" end
-    if not b then return nil,nil,"Invalid B time" end
-    if b <= a then return nil,nil,"B must be later than A" end
-    return a,b,nil
+    if not a then return nil, nil, "Invalid A time" end
+    if not b then return nil, nil, "Invalid B time" end
+    if b <= a then return nil, nil, "B must be later than A" end
+    return a, b, nil
 end
 
 function add_loop()
-    local a,b,err = validate_inputs()
+    local a, b, err = validate_inputs()
     if err then set_status(err); return end
-    table.insert(loops, {id=next_id, start_us=a, end_us=b})
+
+    table.insert(loops, {id = next_id, start_us = a, end_us = b})
     local id = next_id
     next_id = next_id + 1
-    local ok,msg = write_state()
+
+    local ok, msg = write_state()
     if not ok then set_status(msg); return end
     refresh_selector()
-    set_status("Added loop #"..id)
+    set_status("Saved preset #" .. id .. " from current A/B")
 end
 
 function update_loop()
     local id = selected_id()
-    if not id then set_status("Select one loop to update"); return end
+    if not id then set_status("Select one saved preset to update"); return end
+
     local lp = find_loop(id)
-    if not lp then set_status("Selected loop not found"); return end
-    local a,b,err = validate_inputs()
+    if not lp then set_status("Selected preset not found"); return end
+
+    local a, b, err = validate_inputs()
     if err then set_status(err); return end
-    lp.start_us, lp.end_us = a,b
-    local ok,msg = write_state()
+
+    lp.start_us, lp.end_us = a, b
+    local ok, msg = write_state()
     if not ok then set_status(msg); return end
     refresh_selector()
-    set_status("Updated loop #"..id)
+    set_status("Updated preset #" .. id .. " from current A/B")
 end
 
 function delete_loop()
     local id = selected_id()
-    if not id then set_status("Select one loop to delete"); return end
+    if not id then set_status("Select one saved preset to delete"); return end
+
     local _, idx = find_loop(id)
-    if not idx then set_status("Selected loop not found"); return end
+    if not idx then set_status("Selected preset not found"); return end
+
+    -- Deleting a preset never changes the active runtime loop.
     table.remove(loops, idx)
-    if active_id == id then active_id=0; enabled=false end
-    local ok,msg = write_state()
+
+    local ok, msg = write_state()
     if not ok then set_status(msg); return end
     refresh_selector()
-    set_status("Deleted loop #"..id)
+    set_status("Deleted preset #" .. id .. "; active loop unchanged")
 end
 
 function load_selected()
     local id = selected_id()
-    if not id then set_status("Select one loop"); return end
+    if not id then set_status("Select one saved preset"); return end
+
     local lp = find_loop(id)
-    if not lp then return end
+    if not lp then set_status("Selected preset not found"); return end
+
+    -- Load only copies preset values to the screen. It never activates the loop.
     start_input:set_text(format_time(lp.start_us))
     end_input:set_text(format_time(lp.end_us))
-    set_status("Loaded loop #"..id)
+    set_status("Loaded preset #" .. id .. " into A/B; press LOOP ON to apply")
 end
 
-function activate_selected()
-    local id = selected_id()
-    if not id then set_status("Select one loop to activate"); return end
-    local lp = find_loop(id)
-    if not lp then return end
-    active_id=id; enabled=true
-    local ok,msg = write_state()
-    if not ok then set_status(msg); return end
+function activate_screen()
+    -- The A/B fields on screen are the only source of truth for runtime looping.
+    local a, b, err = validate_inputs()
+    if err then set_status(err); return end
+
+    active_start_us = a
+    active_end_us = b
+    enabled = true
+
+    local ok, msg = write_state()
+    if not ok then
+        enabled = false
+        set_status(msg)
+        return
+    end
+
     local input = vlc.object.input()
-    if input then vlc.var.set(input, "time", lp.start_us) end
-    refresh_selector()
-    set_status("LOOP ON: #"..id)
+    if input then vlc.var.set(input, "time", active_start_us) end
+
+    refresh_active_label()
+    dlg:update()
+    set_status("LOOP ON: screen A/B applied")
 end
 
 function stop_loop()
-    enabled=false
-    local ok,msg=write_state()
+    enabled = false
+
+    local ok, msg = write_state()
     if not ok then set_status(msg); return end
-    refresh_selector()
+
+    refresh_active_label()
+    dlg:update()
     set_status("LOOP OFF")
 end
 
 local function current_time_us()
-    local input=vlc.object.input()
+    local input = vlc.object.input()
     if not input then return nil end
     return vlc.var.get(input, "time")
 end
 
 function refresh_current()
-    local us=current_time_us()
-    if not us then current_label:set_text("CURRENT: no media"); dlg:update(); return end
-    current_label:set_text("CURRENT: "..format_time(us).."   ("..tostring(us).." us)")
+    local us = current_time_us()
+    if not us then
+        current_label:set_text("CURRENT: no media")
+        dlg:update()
+        return
+    end
+
+    current_label:set_text("CURRENT: " .. format_time(us) .. "   (" .. tostring(us) .. " us)")
     dlg:update()
 end
 
 function set_a_current()
-    local us=current_time_us()
+    local us = current_time_us()
     if not us then set_status("No media playing"); return end
-    start_input:set_text(format_time(us)); refresh_current()
+    start_input:set_text(format_time(us))
+    refresh_current()
 end
 
 function set_b_current()
-    local us=current_time_us()
+    local us = current_time_us()
     if not us then set_status("No media playing"); return end
-    end_input:set_text(format_time(us)); refresh_current()
+    end_input:set_text(format_time(us))
+    refresh_current()
 end
 
 function activate()
     load_state()
-    dlg=vlc.dialog("Advanced A-B Looper")
+    dlg = vlc.dialog("Advanced A-B Looper")
 
-    current_label=dlg:add_label("CURRENT: --:--:--.---",1,1,4,1,420,24)
-    dlg:add_button("Refresh",refresh_current,5,1,1,1,90,28)
+    current_label = dlg:add_label("CURRENT: --:--:--.---", 1, 1, 4, 1, 420, 24)
+    dlg:add_button("Refresh", refresh_current, 5, 1, 1, 1, 90, 28)
 
-    dlg:add_label("A",1,2,1,1,20,24)
-    start_input=dlg:add_text_input("00:11:11.000",2,2,3,1,250,28)
-    dlg:add_button("Current -> A",set_a_current,5,2,1,1,110,28)
+    dlg:add_label("A", 1, 2, 1, 1, 20, 24)
+    start_input = dlg:add_text_input("00:11:11.000", 2, 2, 3, 1, 250, 28)
+    dlg:add_button("Current -> A", set_a_current, 5, 2, 1, 1, 110, 28)
 
-    dlg:add_label("B",1,3,1,1,20,24)
-    end_input=dlg:add_text_input("00:11:14.000",2,3,3,1,250,28)
-    dlg:add_button("Current -> B",set_b_current,5,3,1,1,110,28)
+    dlg:add_label("B", 1, 3, 1, 1, 20, 24)
+    end_input = dlg:add_text_input("00:11:14.000", 2, 3, 3, 1, 250, 28)
+    dlg:add_button("Current -> B", set_b_current, 5, 3, 1, 1, 110, 28)
 
-    dlg:add_label("Saved loops",1,4,1,1,80,24)
-    loop_selector=dlg:add_dropdown(2,4,4,1,350,28)
+    -- Keep the screen synchronized with the current active runtime range on open.
+    if active_start_us and active_end_us and active_end_us > active_start_us then
+        start_input:set_text(format_time(active_start_us))
+        end_input:set_text(format_time(active_end_us))
+    end
 
-    dlg:add_button("Add",add_loop,1,5,1,1,75,28)
-    dlg:add_button("Update",update_loop,2,5,1,1,75,28)
-    dlg:add_button("Delete",delete_loop,3,5,1,1,75,28)
-    dlg:add_button("Load",load_selected,4,5,1,1,75,28)
-    dlg:add_button("LOOP ON",activate_selected,5,5,1,1,90,28)
-    dlg:add_button("LOOP OFF",stop_loop,6,5,1,1,90,28)
+    dlg:add_label("Saved presets", 1, 4, 1, 1, 90, 24)
+    loop_selector = dlg:add_dropdown(2, 4, 4, 1, 350, 28)
 
-    active_label=dlg:add_label("ACTIVE: none   |   LOOP OFF",1,6,6,1,520,24)
-    status_label=dlg:add_label("Ready",1,7,6,1,520,24)
+    dlg:add_button("Save New", add_loop, 1, 5, 1, 1, 85, 28)
+    dlg:add_button("Update", update_loop, 2, 5, 1, 1, 75, 28)
+    dlg:add_button("Delete", delete_loop, 3, 5, 1, 1, 75, 28)
+    dlg:add_button("Load", load_selected, 4, 5, 1, 1, 75, 28)
+    dlg:add_button("LOOP ON", activate_screen, 5, 5, 1, 1, 90, 28)
+    dlg:add_button("LOOP OFF", stop_loop, 6, 5, 1, 1, 90, 28)
+
+    active_label = dlg:add_label("ACTIVE: none   |   LOOP OFF", 1, 6, 6, 1, 520, 24)
+    status_label = dlg:add_label("A/B fields are the runtime source of truth", 1, 7, 6, 1, 520, 24)
 
     refresh_selector()
     refresh_current()
