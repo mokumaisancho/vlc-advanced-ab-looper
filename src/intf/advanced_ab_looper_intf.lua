@@ -1,18 +1,19 @@
 -- Advanced A-B Looper helper interface for VLC 3.x
--- Runtime looping is driven only by active_start_us / active_end_us.
--- Saved presets are ignored by the engine.
+-- Runtime state is track-bound by exact media URI.
+-- The helper refuses to loop if the playing item differs from the armed track.
 
 local STATE_FILE = vlc.config.userdatadir() .. "/advanced_ab_looper.state"
 local RUNTIME_FILE = vlc.config.userdatadir() .. "/advanced_ab_looper.runtime"
 
-local POLL_US = 5000             -- 5 ms
-local STATE_REFRESH_US = 100000  -- 100 ms control-plane refresh
-local SAFETY_MARGIN_US = 20000   -- seek 20 ms before B to avoid observable overshoot
+local POLL_US = 5000
+local STATE_REFRESH_US = 100000
+local SAFETY_MARGIN_US = 20000
 local SEEK_GUARD_US = 50000
 local RUNTIME_WRITE_US = 50000
 
 local state = {
     enabled = false,
+    track_uri = nil,
     start_us = nil,
     end_us = nil
 }
@@ -33,10 +34,16 @@ local function format_time(us)
     return string.format("%02d:%02d:%02d.%03d", h, m, s, ms)
 end
 
+local function current_uri()
+    local item = vlc.input.item()
+    if not item then return nil end
+    return item:uri()
+end
+
 local function read_state()
     local f = vlc.io.open(STATE_FILE, "r")
     if not f then
-        state = {enabled = false, start_us = nil, end_us = nil}
+        state = {enabled = false, track_uri = nil, start_us = nil, end_us = nil}
         return
     end
 
@@ -49,45 +56,35 @@ local function read_state()
         if k then p[k] = v end
     end
 
-    local version = tonumber(p.version) or 0
     local enabled = p.enabled == "1"
-    local a, b
+    local uri = p.track_uri
+    local a = tonumber(p.active_start_us)
+    local b = tonumber(p.active_end_us)
 
-    if version >= 3 then
-        a = tonumber(p.active_start_us)
-        b = tonumber(p.active_end_us)
-    elseif version == 2 then
-        -- Backward compatibility only: derive the old active preset once.
-        local old_id = tonumber(p.active_id) or 0
-        local n = tonumber(p.loop_count) or 0
-        for i = 1, n do
-            local id = tonumber(p["loop_" .. i .. "_id"])
-            if id == old_id then
-                a = tonumber(p["loop_" .. i .. "_start_us"])
-                b = tonumber(p["loop_" .. i .. "_end_us"])
-                break
-            end
-        end
-    end
-
-    if not (a and b and a >= 0 and b > a) then
+    if tonumber(p.version) ~= 4
+        or not uri or uri == ""
+        or not (a and b and a >= 0 and b > a) then
         enabled = false
-        a, b = nil, nil
+        uri, a, b = nil, nil, nil
     end
 
     state = {
         enabled = enabled,
+        track_uri = uri,
         start_us = a,
         end_us = b
     }
 end
 
-local function write_runtime(t)
+local function write_runtime(t, uri, track_matches)
     local f = vlc.io.open(RUNTIME_FILE, "w")
     if not f then return end
 
     f:write("current_us=" .. tostring(t or 0) .. "\n")
     f:write("current_text=" .. format_time(t or 0) .. "\n")
+    f:write("current_uri=" .. tostring(uri or "") .. "\n")
+    f:write("armed_uri=" .. tostring(state.track_uri or "") .. "\n")
+    f:write("track_matches=" .. (track_matches and "1" or "0") .. "\n")
     f:write("enabled=" .. (state.enabled and "1" or "0") .. "\n")
     f:write("active_start_us=" .. tostring(state.start_us or 0) .. "\n")
     f:write("active_end_us=" .. tostring(state.end_us or 0) .. "\n")
@@ -95,7 +92,7 @@ local function write_runtime(t)
     f = nil
 end
 
-vlc.msg.info("[Advanced A-B Looper] v2.3 helper started")
+vlc.msg.info("[Advanced A-B Looper] v2.4 helper started")
 
 while true do
     local now = vlc.misc.mdate()
@@ -108,8 +105,12 @@ while true do
     local input = vlc.object.input()
     if input then
         local t = vlc.var.get(input, "time")
+        local uri = current_uri()
+        local track_matches =
+            state.track_uri ~= nil and uri ~= nil and state.track_uri == uri
+
         if t then
-            if state.enabled and state.start_us and state.end_us then
+            if state.enabled and track_matches and state.start_us and state.end_us then
                 local trigger = state.end_us - SAFETY_MARGIN_US
                 if trigger < state.start_us then trigger = state.end_us end
 
@@ -120,7 +121,7 @@ while true do
             end
 
             if now >= next_runtime_write then
-                write_runtime(t)
+                write_runtime(t, uri, track_matches)
                 next_runtime_write = now + RUNTIME_WRITE_US
             end
         end
